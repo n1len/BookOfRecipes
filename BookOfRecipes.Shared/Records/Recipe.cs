@@ -8,7 +8,7 @@
         public string DescriptionField { get; init; } = string.Empty;
 
         public required Guid BookOfRecipeId { get; init; }
-        public required BookOfRecipe? BookOfRecipe { get; init; }
+        public required BookOfRecipe BookOfRecipe { get; init; }
 
         public ICollection<LikeOnRecipe> LikeOnRecipes { get; init; } = new List<LikeOnRecipe>();
     }

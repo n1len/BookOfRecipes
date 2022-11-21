@@ -8,7 +8,7 @@
         public string Img { get; init; } = string.Empty;
 
         public required Guid UserId { get; init; }
-        public required User? User { get; init; }
+        public required User User { get; init; }
 
         public ICollection<Recipe> Recipes { get; init; } = new List<Recipe>();
     }
