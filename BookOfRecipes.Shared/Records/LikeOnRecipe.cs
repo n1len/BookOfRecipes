@@ -5,10 +5,10 @@
         public Guid Id { get; } = Guid.NewGuid();
         public bool IsLiked { get; init; } = true;
 
-        public Guid RecipeId { get; init; }
-        public Recipe? Recipe { get; init; }
+        public required Guid RecipeId { get; init; }
+        public required Recipe? Recipe { get; init; }
 
-        public Guid UserId { get; init; }
-        public User? User { get; init; }
+        public required Guid UserId { get; init; }
+        public required User? User { get; init; }
     }
 }

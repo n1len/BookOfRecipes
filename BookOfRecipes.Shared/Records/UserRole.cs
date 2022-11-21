@@ -3,7 +3,7 @@
     public record UserRole
     {
         public Guid Id { get; } = Guid.NewGuid();
-        public string RoleName { get; init; } = string.Empty;
+        public required string RoleName { get; init; }
 
         public ICollection<User> Users { get; init; } = new List<User>();
     }

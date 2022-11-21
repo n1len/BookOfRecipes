@@ -3,14 +3,14 @@
     public record User
     {
         public Guid Id { get; } = Guid.NewGuid();
-        public string Name { get; init; } = string.Empty;
-        public string Surname { get; init; } = string.Empty;
-        public string Login { get; init; } = string.Empty;
-        public string Password { get; init; } = string.Empty;
+        public required string Name { get; init; }
+        public required string Surname { get; init; }
+        public required string Login { get; init; }
+        public required string Password { get; init; }
         public bool IsBlocked { get; init; } = false;
 
-        public Guid UserRoleId { get; init; }
-        public UserRole? UserRole { get; init; }
+        public required Guid UserRoleId { get; init; }
+        public required UserRole? UserRole { get; init; }
 
         public ICollection<LikeOnRecipe> LikeOnRecipes { get; init; } = new List<LikeOnRecipe>();
         public ICollection<BookOfRecipe> BookOfRecipes { get; init; } = new List<BookOfRecipe>();
