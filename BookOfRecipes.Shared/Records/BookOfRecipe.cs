@@ -1,8 +1,9 @@
-﻿namespace BookOfRecipes.Shared.Records
+﻿using BookOfRecipes.Shared.Records.Base;
+
+namespace BookOfRecipes.Shared.Records
 {
-    public record BookOfRecipe
+    public record BookOfRecipe : BaseObject
     {
-        public Guid Id { get; } = Guid.NewGuid();
         public required string Title { get; init; }
         public string Description { get; init; } = string.Empty;
         public string Img { get; init; } = string.Empty;
