@@ -11,7 +11,7 @@ namespace BookOfRecipes.Shared.Records
 
         [ForeignKey(name: "UserId")]
         public required Guid UserId { get; init; }
-        public required User User { get; init; }
+        public virtual User? User { get; init; }
 
         public ICollection<Recipe> Recipes { get; init; } = new List<Recipe>();
     }

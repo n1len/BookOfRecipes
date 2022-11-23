@@ -13,7 +13,7 @@ namespace BookOfRecipes.Shared.Records
 
         [ForeignKey(name: "UserRoleId")]
         public required Guid UserRoleId { get; init; }
-        public required UserRole UserRole { get; init; }
+        public virtual UserRole? UserRole { get; init; }
 
         public ICollection<LikeOnRecipe> LikeOnRecipes { get; init; } = new List<LikeOnRecipe>();
         public ICollection<BookOfRecipe> BookOfRecipes { get; init; } = new List<BookOfRecipe>();

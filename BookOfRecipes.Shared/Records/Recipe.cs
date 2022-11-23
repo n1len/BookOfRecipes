@@ -11,8 +11,8 @@ namespace BookOfRecipes.Shared.Records
 
         [ForeignKey(name: "BookOfRecipeId")]
         public required Guid BookOfRecipeId { get; init; }
-        public required BookOfRecipe BookOfRecipe { get; init; }
+        public virtual BookOfRecipe? BookOfRecipe { get; init; }
 
-        public ICollection<LikeOnRecipe> LikeOnRecipes { get; init; } = new List<LikeOnRecipe>();
+        public ICollection<LikeOnRecipe> LikesOnRecipe { get; init; } = new List<LikeOnRecipe>();
     }
 }

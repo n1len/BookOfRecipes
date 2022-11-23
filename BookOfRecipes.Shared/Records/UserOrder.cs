@@ -7,10 +7,10 @@ namespace BookOfRecipes.Shared.Records
     {
         [ForeignKey(name: "UserRecipesCartId")]
         public required Guid UserRecipesCartId { get; init; }
-        public required UserRecipesCart UserRecipesCart { get; init; }
+        public virtual UserRecipesCart? UserRecipesCart { get; init; }
 
         [ForeignKey(name: "UserId")]
         public required Guid UserId { get; init; }
-        public required User User { get; init; }
+        public virtual User? User { get; init; }
     }
 }

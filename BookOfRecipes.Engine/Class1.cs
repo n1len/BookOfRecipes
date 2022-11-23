@@ -1,7 +1,6 @@
 ﻿using BookOfRecipes.Database;
+using BookOfRecipes.Database.DtoMappers;
 using BookOfRecipes.Database.Interfaces;
-using BookOfRecipes.Shared.Records;
-using Microsoft.EntityFrameworkCore;
 
 namespace BookOfRecipes.Engine
 {
@@ -11,14 +10,26 @@ namespace BookOfRecipes.Engine
 
         public void DoSomeJob(string connectionString)
         {
+            //using (var context = DatabaseContextFactory.CreateDatabaseContext(connectionString))
+            //{
+            //    UserRoleDto userRoleDto = new UserRoleDto()
+            //    {
+            //        RoleName = "TestRole"
+            //    };
+            //    UserRoleDtoMapper mapper = new UserRoleDtoMapper();
+            //    var userRole = mapper.ToRecord(userRoleDto);
+            //    context.Add(userRole);
+            //    context.SaveChanges();
+            //}
+
             using (var context = DatabaseContextFactory.CreateDatabaseContext(connectionString))
             {
-                UserRole userRole = new UserRole()
+                var userRoles = context.UserRoles.Where(x => x.RoleName == "TestRole").ToList();
+                UserRoleDtoMapper mapper = new UserRoleDtoMapper();
+                foreach(var userRole1 in userRoles)
                 {
-                    RoleName = "TestRole"
-                };
-                context.Add(userRole);
-                context.SaveChanges();
+                    var mappedRole = mapper.MapToDto(userRole1);
+                }
             }
         }
     }

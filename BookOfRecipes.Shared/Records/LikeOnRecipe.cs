@@ -9,10 +9,10 @@ namespace BookOfRecipes.Shared.Records
 
         [ForeignKey(name: "RecipeId")]
         public required Guid RecipeId { get; init; }
-        public required Recipe Recipe { get; init; }
+        public virtual Recipe? Recipe { get; init; }
 
         [ForeignKey(name: "UserId")]
         public required Guid UserId { get; set; }
-        public required User User { get; init; }
+        public virtual User? User { get; init; }
     }
 }

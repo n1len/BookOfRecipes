@@ -1,6 +1,8 @@
-﻿namespace BookOfRecipes.Database.Dtos
+﻿using BookOfRecipes.Database.Dtos.Base;
+
+namespace BookOfRecipes.Database.Dtos
 {
-    public record UserRoleDto
+    public record UserRoleDto : BaseObjectDto
     {
         public required string RoleName { get; init; }
 

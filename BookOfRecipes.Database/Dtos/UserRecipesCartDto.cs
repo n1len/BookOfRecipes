@@ -1,6 +1,8 @@
-﻿namespace BookOfRecipes.Database.Dtos
+﻿using BookOfRecipes.Database.Dtos.Base;
+
+namespace BookOfRecipes.Database.Dtos
 {
-    public record UserRecipesCartDto
+    public record UserRecipesCartDto : BaseObjectDto
     {
         public ICollection<RecipeDto> RecipesInCartDto { get; init; } = new List<RecipeDto>();
     }
