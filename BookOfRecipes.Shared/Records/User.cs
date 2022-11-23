@@ -1,4 +1,5 @@
 ﻿using BookOfRecipes.Shared.Records.Base;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookOfRecipes.Shared.Records
 {
@@ -10,6 +11,7 @@ namespace BookOfRecipes.Shared.Records
         public required string Password { get; init; }
         public bool IsBlocked { get; init; } = false;
 
+        [ForeignKey(name: "UserRoleId")]
         public required Guid UserRoleId { get; init; }
         public required UserRole UserRole { get; init; }
 

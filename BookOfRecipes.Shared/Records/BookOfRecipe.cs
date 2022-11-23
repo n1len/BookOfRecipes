@@ -1,4 +1,5 @@
 ﻿using BookOfRecipes.Shared.Records.Base;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookOfRecipes.Shared.Records
 {
@@ -8,6 +9,7 @@ namespace BookOfRecipes.Shared.Records
         public string Description { get; init; } = string.Empty;
         public string Img { get; init; } = string.Empty;
 
+        [ForeignKey(name: "UserId")]
         public required Guid UserId { get; init; }
         public required User User { get; init; }
 
