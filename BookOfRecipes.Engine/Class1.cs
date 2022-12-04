@@ -1,6 +1,9 @@
 ﻿using BookOfRecipes.Database;
 using BookOfRecipes.Database.DtoMappers;
+using BookOfRecipes.Database.Dtos;
 using BookOfRecipes.Database.Interfaces;
+using BookOfRecipes.Engine.Interfaces;
+using BookOfRecipes.Engine.Repositories;
 
 namespace BookOfRecipes.Engine
 {
@@ -31,6 +34,15 @@ namespace BookOfRecipes.Engine
                     var mappedRole = mapper.MapToDto(userRole1);
                 }
             }
+
+            BookOfRecipeDto dto = new BookOfRecipeDto() 
+            {
+                Title= "Title",
+                UserDtoId = Guid.NewGuid(),
+            };
+
+            IBookOfRecipeRepository bookOfRecipeRepository = new BookOfRecipeRepository();
+            bookOfRecipeRepository.Create(dto);
         }
     }
 }
