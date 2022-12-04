@@ -1,6 +1,9 @@
 ﻿using BookOfRecipes.Database;
 using BookOfRecipes.Database.DtoMappers;
+using BookOfRecipes.Database.Dtos;
 using BookOfRecipes.Database.Interfaces;
+using BookOfRecipes.Engine.Interfaces;
+using BookOfRecipes.Engine.Repositories;
 
 namespace BookOfRecipes.Engine
 {
@@ -31,6 +34,24 @@ namespace BookOfRecipes.Engine
                     var mappedRole = mapper.MapToDto(userRole1);
                 }
             }
+
+            UserDto user = new UserDto()
+            {
+                Name = "TestName",
+                Surname = "TestSurname",
+                Login = "Test",
+                Password = "TestNotEncrypted",
+                UserRoleDtoId = Guid.Parse("2281020A-3FDD-4E9D-BBFD-0614B50A586A")
+            };
+            IUserRepository userRepository = new UserRepository(connectionString);
+            userRepository.Create(user);
+            BookOfRecipeDto dto = new BookOfRecipeDto() 
+            {
+                Title= "Title",
+                UserDtoId = user.Id,
+            };
+            IBookOfRecipeRepository bookOfRecipeRepository = new BookOfRecipeRepository(connectionString);
+            bookOfRecipeRepository.Create(dto);
         }
     }
 }
