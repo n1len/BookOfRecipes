@@ -35,13 +35,22 @@ namespace BookOfRecipes.Engine
                 }
             }
 
+            UserDto user = new UserDto()
+            {
+                Name = "TestName",
+                Surname = "TestSurname",
+                Login = "Test",
+                Password = "TestNotEncrypted",
+                UserRoleDtoId = Guid.Parse("2281020A-3FDD-4E9D-BBFD-0614B50A586A")
+            };
+            IUserRepository userRepository = new UserRepository(connectionString);
+            userRepository.Create(user);
             BookOfRecipeDto dto = new BookOfRecipeDto() 
             {
                 Title= "Title",
-                UserDtoId = Guid.NewGuid(),
+                UserDtoId = user.Id,
             };
-
-            IBookOfRecipeRepository bookOfRecipeRepository = new BookOfRecipeRepository();
+            IBookOfRecipeRepository bookOfRecipeRepository = new BookOfRecipeRepository(connectionString);
             bookOfRecipeRepository.Create(dto);
         }
     }

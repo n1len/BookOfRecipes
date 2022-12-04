@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-
-namespace BookOfRecipes.Database.Interfaces
+﻿namespace BookOfRecipes.Database.Interfaces
 {
     public interface IDatabaseContextFactory<T>
     {
