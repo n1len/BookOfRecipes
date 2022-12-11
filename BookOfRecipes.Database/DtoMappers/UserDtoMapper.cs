@@ -6,6 +6,8 @@ namespace BookOfRecipes.Database.DtoMappers
 {
     public class UserDtoMapper : BaseDtoMapper<UserDto, User>
     {
+        public static UserDtoMapper Mapper => new UserDtoMapper();
+
         public override UserDto MapToDto(User record)
         {
             if (record == null)
@@ -20,6 +22,7 @@ namespace BookOfRecipes.Database.DtoMappers
                 Surname = record.Surname,
                 Login = record.Login,
                 Password = record.Password,
+                Token = record.Token,
                 IsBlocked = record.IsBlocked,
                 UserRoleDtoId = record.UserRoleId,
                 LikeOnRecipesDto = record.LikeOnRecipes.Cast<LikeOnRecipeDto>().ToList(),
@@ -41,6 +44,7 @@ namespace BookOfRecipes.Database.DtoMappers
                 Surname = dto.Surname,
                 Login = dto.Login,
                 Password = dto.Password,
+                Token = dto.Token,
                 IsBlocked = dto.IsBlocked,
                 UserRoleId = dto.UserRoleDtoId,
                 LikeOnRecipes = dto.LikeOnRecipesDto.Cast<LikeOnRecipe>().ToList(),

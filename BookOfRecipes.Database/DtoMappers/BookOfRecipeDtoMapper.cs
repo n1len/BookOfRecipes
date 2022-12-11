@@ -6,6 +6,8 @@ namespace BookOfRecipes.Database.DtoMappers
 {
     public class BookOfRecipeDtoMapper : BaseDtoMapper<BookOfRecipeDto, BookOfRecipe>
     {
+        public static BookOfRecipeDtoMapper Mapper => new BookOfRecipeDtoMapper();
+
         public override BookOfRecipeDto MapToDto(BookOfRecipe record)
         {
             if (record == null)
@@ -40,6 +42,17 @@ namespace BookOfRecipes.Database.DtoMappers
                 UserId = dto.UserDtoId,
                 Recipes = dto.RecipesDto.Cast<Recipe>().ToList()
             };
+        }
+
+        public IEnumerable<BookOfRecipeDto> MapToDtos(IEnumerable<BookOfRecipe> enumerable)
+        {
+            List<BookOfRecipeDto> dtos = new List<BookOfRecipeDto>();
+            foreach (var item in enumerable)
+            {
+                dtos.Add(MapToDto(item));
+            }
+
+            return dtos;
         }
     }
 }

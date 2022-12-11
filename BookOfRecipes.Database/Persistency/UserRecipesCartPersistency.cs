@@ -4,6 +4,8 @@ namespace BookOfRecipes.Database.Persistency
 {
     public class UserRecipesCartPersistency : PersistencyObject<UserRecipesCart>
     {
+        public static UserRecipesCartPersistency Instance => new UserRecipesCartPersistency();
+
         public override void Create(DatabaseContext context, UserRecipesCart entity)
         {
             throw new NotImplementedException();

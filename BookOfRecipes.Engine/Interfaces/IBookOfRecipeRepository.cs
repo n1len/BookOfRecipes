@@ -8,5 +8,7 @@ namespace BookOfRecipes.Engine.Interfaces
         void Update(BookOfRecipeDto bookOfRecipeDto);
         void Delete(BookOfRecipeDto bookOfRecipeDto);
         BookOfRecipeDto GetById(Guid id);
+        IEnumerable<BookOfRecipeDto> GetBookOfRecipeDtosByUserId(Guid userId);
+        IEnumerable<BookOfRecipeDto> GetAllBooks();
     }
 }

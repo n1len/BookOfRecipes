@@ -4,7 +4,7 @@ namespace BookOfRecipes.Database.Dtos
 {
     public record UserRoleDto : BaseObjectDto
     {
-        public required string RoleName { get; init; }
+        public required string RoleName { get; set; }
 
         public ICollection<UserDto> UsersDto { get; init; } = new List<UserDto>();
     }

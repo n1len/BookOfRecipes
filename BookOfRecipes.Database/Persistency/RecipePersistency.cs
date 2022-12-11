@@ -4,6 +4,8 @@ namespace BookOfRecipes.Database.Persistency
 {
     public class RecipePersistency : PersistencyObject<Recipe>
     {
+        public static RecipePersistency Instance => new RecipePersistency();
+
         public override void Create(DatabaseContext context, Recipe entity)
         {
             context.Recipes.Add(entity);

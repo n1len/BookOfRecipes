@@ -4,6 +4,8 @@ namespace BookOfRecipes.Database.Persistency
 {
     public class LikeOnRecipePersistency : PersistencyObject<LikeOnRecipe>
     {
+        public static LikeOnRecipePersistency Instance => new LikeOnRecipePersistency();
+
         public override void Create(DatabaseContext context, LikeOnRecipe entity)
         {
             context.LikeOnRecipes.Add(entity);

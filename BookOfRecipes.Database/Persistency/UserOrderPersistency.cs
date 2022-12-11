@@ -4,6 +4,8 @@ namespace BookOfRecipes.Database.Persistency
 {
     public class UserOrderPersistency : PersistencyObject<UserOrder>
     {
+        public static UserOrderPersistency Instance => new UserOrderPersistency();
+
         public override void Create(DatabaseContext context, UserOrder entity)
         {
             context.UserOrders.Add(entity);

@@ -6,6 +6,7 @@ namespace BookOfRecipes.Database.DtoMappers
 {
     public class UserOrderDtoMapper : BaseDtoMapper<UserOrderDto, UserOrder>
     {
+        public static UserOrderDtoMapper Mapper => new UserOrderDtoMapper();
         public override UserOrderDto MapToDto(UserOrder record)
         {
             if (record == null)

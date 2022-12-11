@@ -4,9 +4,9 @@ namespace BookOfRecipes.Database.Dtos
 {
     public record BookOfRecipeDto : BaseObjectDto
     {
-        public required string Title { get; init; }
-        public string Description { get; init; } = string.Empty;
-        public string Img { get; init; } = string.Empty;
+        public required string Title { get; set; }
+        public string Description { get; set; } = string.Empty;
+        public string Img { get; set; } = string.Empty;
 
         public required Guid UserDtoId { get; init; }
         public virtual UserDto? UserDto { get; init; }

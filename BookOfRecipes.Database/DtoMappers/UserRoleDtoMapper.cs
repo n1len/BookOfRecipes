@@ -6,6 +6,8 @@ namespace BookOfRecipes.Database.DtoMappers
 {
     public class UserRoleDtoMapper : BaseDtoMapper<UserRoleDto, UserRole>
     {
+        public static UserRoleDtoMapper Mapper => new UserRoleDtoMapper();
+
         public override UserRoleDto MapToDto(UserRole record)
         {
             if (record == null)

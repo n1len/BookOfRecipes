@@ -12,8 +12,4 @@
     <ProjectReference Include="..\BookOfRecipes.Engine\BookOfRecipes.Engine.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="GUI\" />
-  </ItemGroup>
-
 </Project>

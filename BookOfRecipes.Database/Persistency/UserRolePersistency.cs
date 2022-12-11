@@ -4,6 +4,8 @@ namespace BookOfRecipes.Database.Persistency
 {
     public class UserRolePersistency : PersistencyObject<UserRole>
     {
+        public static UserRolePersistency Instance => new UserRolePersistency();
+
         public override void Create(DatabaseContext context, UserRole entity)
         {
             context.UserRoles.Add(entity);
@@ -23,5 +25,7 @@ namespace BookOfRecipes.Database.Persistency
         }
 
         public override UserRole GetById(DatabaseContext context, Guid id) => context.UserRoles.FirstOrDefault(x => x.Id == id);
+
+        public UserRole GetByName(DatabaseContext context, string name) => context.UserRoles.FirstOrDefault(x => x.RoleName == name);
     }
 }

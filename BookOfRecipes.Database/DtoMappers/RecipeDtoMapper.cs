@@ -6,6 +6,8 @@ namespace BookOfRecipes.Database.DtoMappers
 {
     public class RecipeDtoMapper : BaseDtoMapper<RecipeDto, Recipe>
     {
+        public static RecipeDtoMapper Mapper => new RecipeDtoMapper();
+
         public override RecipeDto MapToDto(Recipe record)
         {
             if (record == null)
