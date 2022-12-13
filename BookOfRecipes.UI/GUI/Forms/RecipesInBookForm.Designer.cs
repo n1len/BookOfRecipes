@@ -37,6 +37,7 @@
             this.tbTitle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbDescription = new System.Windows.Forms.TextBox();
+            this.lbPage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnRefreshForm
@@ -79,7 +80,7 @@
             // 
             this.recipesInBookPanel.Location = new System.Drawing.Point(12, 120);
             this.recipesInBookPanel.Name = "recipesInBookPanel";
-            this.recipesInBookPanel.Size = new System.Drawing.Size(526, 114);
+            this.recipesInBookPanel.Size = new System.Drawing.Size(526, 152);
             this.recipesInBookPanel.TabIndex = 4;
             // 
             // label1
@@ -120,11 +121,21 @@
             this.tbDescription.Size = new System.Drawing.Size(284, 63);
             this.tbDescription.TabIndex = 8;
             // 
+            // lbPage
+            // 
+            this.lbPage.AutoSize = true;
+            this.lbPage.Location = new System.Drawing.Point(314, 95);
+            this.lbPage.Name = "lbPage";
+            this.lbPage.Size = new System.Drawing.Size(45, 15);
+            this.lbPage.TabIndex = 9;
+            this.lbPage.Text = "Page: 1";
+            // 
             // RecipesInBookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 246);
+            this.ClientSize = new System.Drawing.Size(550, 284);
+            this.Controls.Add(this.lbPage);
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbTitle);
@@ -152,5 +163,6 @@
         private TextBox tbTitle;
         private Label label2;
         private TextBox tbDescription;
+        private Label lbPage;
     }
 }

@@ -10,6 +10,8 @@ namespace BookOfRecipes.UI.Processes
 {
     internal class UserAccountProcess : BaseProcess
     {
+        private const int ItemsPerPage = 5;
+
         private readonly IUserRepository _userRepository;
         private readonly IUserRoleRepository _userRoleRepository;
         private readonly IBookOfRecipeRepository _bookOfRecipeRepository;
@@ -17,8 +19,6 @@ namespace BookOfRecipes.UI.Processes
         private readonly UserDto _user;
 
         private readonly UserAccountForm Form;
-
-        private const int ItemsPerPage = 5;
 
         private BookOfRecipeProcess bookOfRecipeProcess;
         private int page = 0;

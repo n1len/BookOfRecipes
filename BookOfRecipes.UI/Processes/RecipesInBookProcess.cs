@@ -2,6 +2,7 @@
 using BookOfRecipes.Engine.Interfaces;
 using BookOfRecipes.Engine.Repositories;
 using BookOfRecipes.Shared.Enums;
+using BookOfRecipes.UI.GUI.Controls;
 using BookOfRecipes.UI.GUI.Forms;
 using BookOfRecipes.UI.Processes.Base;
 
@@ -9,6 +10,8 @@ namespace BookOfRecipes.UI.Processes
 {
     internal class RecipesInBookProcess : BaseProcess
     {
+        private const int ItemsPerPage = 4;
+
         private readonly IRecipeRepository _recipeRepository;
 
         private readonly BookOfRecipeDto _bookOfRecipeDto;
@@ -18,37 +21,27 @@ namespace BookOfRecipes.UI.Processes
 
         private RecipeProcess recipeProcess;
 
-        public RecipesInBookProcess(BookOfRecipeDto bookOfRecipeDto)
+        private int page = 0;
+
+        public RecipesInBookProcess(BookOfRecipeDto bookOfRecipeDto, UserDto userDto)
         {
             Form = new RecipesInBookForm();
             _bookOfRecipeDto = bookOfRecipeDto;
+            _recipeRepository = new RecipeRepository(ConnectionString);
+            _userDto = userDto;
+
+            bool visible = _userDto is not null;
 
             InitializeHandle();
             FillTextBoxes();
-            UpdateVisibleButtons(false);
-        }
-
-        public RecipesInBookProcess(BookOfRecipeDto bookOfRecipeDto, UserDto userDto) : this(bookOfRecipeDto)
-        {
-            _recipeRepository = new RecipeRepository(ConnectionString);
-            _userDto = userDto;
-            UpdateVisibleButtons(true);
+            FillPanelWithRecipesByPage(_userDto);
+            
+            UpdateVisibleButtons(visible);
         }
 
         public void Start()
         {
             Form.Show();
-        }
-
-        private void UpdateVisibleButtons(bool visible)
-        {
-            Form.BtnCreateRecipe.Visible = visible;
-        }
-
-        private void FillTextBoxes()
-        {
-            Form.TbTitle.Text = _bookOfRecipeDto.Title;
-            Form.TbDescription.Text = _bookOfRecipeDto.Description;
         }
 
         private void InitializeHandle()
@@ -67,17 +60,58 @@ namespace BookOfRecipes.UI.Processes
 
         private void MoveToNextPage(object sender, EventArgs e)
         {
-
+            page++;
+            MoveToPage();
         }
 
         private void MoveToPreviousPage(object sender, EventArgs e)
         {
-
+            page--;
+            if (page <= 0)
+            {
+                page = 0;
+            }
+            MoveToPage();
         }
 
         private void RefreshForm(object sender, EventArgs e)
         {
+            ClearControlWithRecipes();
+            FillPanelWithRecipesByPage(_userDto);
+        }
 
+        private void UpdateVisibleButtons(bool visible)
+        {
+            Form.BtnCreateRecipe.Visible = visible;
+        }
+
+        private void FillPanelWithRecipesByPage(UserDto userDto)
+        {
+            var recipes = _recipeRepository.GetRecipeDtosByBookId(_bookOfRecipeDto.Id)
+                .Skip(page * ItemsPerPage).Take(ItemsPerPage);
+
+            foreach (var recipe in recipes)
+            {
+                Form.RecipesInBookPanel.Controls.Add(new RecipeInBookControl(recipe, userDto, ConnectionString));
+            }
+        }
+
+        private void FillTextBoxes()
+        {
+            Form.TbTitle.Text = _bookOfRecipeDto.Title;
+            Form.TbDescription.Text = _bookOfRecipeDto.Description;
+        }
+
+        private void MoveToPage()
+        {
+            Form.LbPage.Text = "Page: " + (page + 1);
+            ClearControlWithRecipes();
+            FillPanelWithRecipesByPage(_userDto);
+        }
+
+        private void ClearControlWithRecipes()
+        {
+            Form.RecipesInBookPanel.Controls.Clear();
         }
     }
 }

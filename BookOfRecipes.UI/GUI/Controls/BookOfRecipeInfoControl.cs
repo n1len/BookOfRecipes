@@ -27,7 +27,7 @@ namespace BookOfRecipes.UI.GUI.Controls
 
         private void btnDetails_Click(object sender, EventArgs e)
         {
-            recipesInBookProcess = new RecipesInBookProcess(_bookOfRecipeDto);
+            recipesInBookProcess = new RecipesInBookProcess(_bookOfRecipeDto, null);
             recipesInBookProcess.Start();
         }
     }

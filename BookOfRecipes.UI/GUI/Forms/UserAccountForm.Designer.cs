@@ -200,7 +200,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 262);
+            this.ClientSize = new System.Drawing.Size(753, 247);
             this.Controls.Add(this.lbPage);
             this.Controls.Add(this.btnPreviousPage);
             this.Controls.Add(this.btnNextPage);

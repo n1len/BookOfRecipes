@@ -22,7 +22,7 @@ namespace BookOfRecipes.UI.Processes
 
         private UserDto _user;
 
-        public MainMenuProcess() 
+        public MainMenuProcess()
         {
             Form = new MainMenuForm();
             _userRepository = new UserRepository(ConnectionString);

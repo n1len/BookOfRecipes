@@ -36,5 +36,10 @@ namespace BookOfRecipes.Engine.Repositories
         {
             return RecipeDtoExtension.GetById(id, _context);
         }
+
+        public IEnumerable<RecipeDto> GetRecipeDtosByBookId(Guid bookId)
+        {
+            return RecipeDtoExtension.GetRecipeDtosByBookId(bookId, _context);
+        }
     }
 }

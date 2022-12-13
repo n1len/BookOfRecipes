@@ -1,6 +1,7 @@
 ﻿using BookOfRecipes.Database.DtoMappers.Base;
 using BookOfRecipes.Database.Dtos;
 using BookOfRecipes.Shared.Records;
+using System.Linq;
 
 namespace BookOfRecipes.Database.DtoMappers
 {
@@ -42,6 +43,17 @@ namespace BookOfRecipes.Database.DtoMappers
                 BookOfRecipeId = dto.BookOfRecipeDtoId,
                 LikesOnRecipe = dto.LikesOnRecipeDto.Cast<LikeOnRecipe>().ToList()
             };
+        }
+
+        public IEnumerable<RecipeDto> MapToDtos(IEnumerable<Recipe> recipes)
+        {
+            List<RecipeDto> dtos = new List<RecipeDto>();
+            foreach (var recipe in recipes)
+            {
+                dtos.Add(MapToDto(recipe));
+            }
+
+            return dtos;
         }
     }
 }

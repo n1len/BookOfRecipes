@@ -36,7 +36,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(15, 42);
+            this.btnEdit.Location = new System.Drawing.Point(15, 82);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 0;
@@ -46,7 +46,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(15, 71);
+            this.btnDelete.Location = new System.Drawing.Point(15, 111);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 1;
@@ -61,12 +61,12 @@
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.ReadOnly = true;
             this.tbTitle.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbTitle.Size = new System.Drawing.Size(100, 33);
+            this.tbTitle.Size = new System.Drawing.Size(100, 73);
             this.tbTitle.TabIndex = 2;
             // 
             // btnToRecipes
             // 
-            this.btnToRecipes.Location = new System.Drawing.Point(15, 100);
+            this.btnToRecipes.Location = new System.Drawing.Point(15, 140);
             this.btnToRecipes.Name = "btnToRecipes";
             this.btnToRecipes.Size = new System.Drawing.Size(75, 23);
             this.btnToRecipes.TabIndex = 3;
@@ -83,7 +83,7 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Name = "BookOfRecipeInUserAccountControl";
-            this.Size = new System.Drawing.Size(108, 130);
+            this.Size = new System.Drawing.Size(108, 166);
             this.ResumeLayout(false);
             this.PerformLayout();
 

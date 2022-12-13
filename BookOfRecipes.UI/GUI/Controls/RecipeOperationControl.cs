@@ -84,7 +84,20 @@ namespace BookOfRecipes.UI.GUI.Controls
                     UpdateText("Delete");
                     FillTextBoxes();
                     break;
+                case OperationType.Details:
+                    UpdateControlSettings(true);
+                    UpdateText("Details");
+                    FillTextBoxes();
+                    break;
             }
+        }
+
+        private void UpdateControlSettings(bool setting)
+        {
+            tbDescription.ReadOnly = setting;
+            tbTags.ReadOnly = setting;
+            tbTitle.ReadOnly = setting;
+            btnOperation.Visible = !setting;
         }
 
         private void UpdateText(string text)

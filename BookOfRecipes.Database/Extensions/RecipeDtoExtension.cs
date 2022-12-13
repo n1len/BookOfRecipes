@@ -25,5 +25,10 @@ namespace BookOfRecipes.Database.Extensions
         {
             return RecipeDtoMapper.Mapper.MapToDto(RecipePersistency.Instance.GetById(context, id));
         }
+
+        public static IEnumerable<RecipeDto> GetRecipeDtosByBookId(Guid bookId, DatabaseContext context)
+        {
+            return RecipeDtoMapper.Mapper.MapToDtos(RecipePersistency.Instance.GetRecipeDtosByBookId(context, bookId));
+        }
     }
 }

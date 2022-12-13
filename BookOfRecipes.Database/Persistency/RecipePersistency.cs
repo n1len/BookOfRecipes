@@ -25,5 +25,7 @@ namespace BookOfRecipes.Database.Persistency
         }
 
         public override Recipe GetById(DatabaseContext context, Guid id) => context.Recipes.FirstOrDefault(x => x.Id == id);
+
+        public IEnumerable<Recipe> GetRecipeDtosByBookId(DatabaseContext context, Guid bookId) => context.Recipes.Where(x => x.BookOfRecipeId == bookId);
     }
 }
