@@ -37,5 +37,16 @@ namespace BookOfRecipes.Database.DtoMappers
                 Users = dto.UsersDto.Cast<User>().ToList()
             };
         }
+
+        public IEnumerable<UserRoleDto> MapToDtos(IEnumerable<UserRole> roles) 
+        {
+            List<UserRoleDto> dtos = new List<UserRoleDto>();
+            foreach (var role in roles)
+            {
+                dtos.Add(MapToDto(role));
+            }
+
+            return dtos;
+        }
     }
 }

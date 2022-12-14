@@ -51,6 +51,11 @@ namespace BookOfRecipes.Engine.Repositories
             return UserDtoExtension.GetByLogin(login, _context);
         }
 
+        public IEnumerable<UserDto> GetAllUsers() 
+        {
+            return UserDtoExtension.GetAllUsers(_context);
+        }
+
         public void CreateIsolatedStorageWithToken(string token)
         {
             using (IsolatedStorageFileStream isoStream = new IsolatedStorageFileStream("Token.txt", FileMode.Create, _isoStore))

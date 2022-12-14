@@ -9,26 +9,32 @@ namespace BookOfRecipes.UI.Processes
 {
     internal class MainMenuProcess : BaseProcess
     {
+        private readonly int ItemsPerPage = 10;
+
         private readonly IBookOfRecipeRepository _bookOfRecipeRepository;
         private readonly IUserRepository _userRepository;
+        private readonly IUserRoleRepository _userRoleRepository;
 
         private readonly MainMenuForm Form;
-
-        private readonly List<BookOfRecipeDto> _bookOfRecipeDtos = new List<BookOfRecipeDto>();
 
         private RegistrationProcess registrationProcess;
         private LoginProcess loginProcess;
         private UserAccountProcess userAccountProcess;
+        private AdminProcess adminProcess;
 
         private UserDto _user;
+
+        private int page = 0;
 
         public MainMenuProcess()
         {
             Form = new MainMenuForm();
             _userRepository = new UserRepository(ConnectionString);
             _bookOfRecipeRepository = new BookOfRecipeRepository(ConnectionString);
+            _userRoleRepository = new UserRoleRepository(ConnectionString);
 
             Form.BtnSignOut.Visible = false;
+            Form.BtnToAdminAccount.Visible = false;
 
             if (_user is null)
             {
@@ -46,12 +52,13 @@ namespace BookOfRecipes.UI.Processes
         private void InitializeComponents()
         {
             InitializeHandle();
-            FillPanel();
+            FillPanelByPage();
         }
 
-        private void FillPanel()
+        private void FillPanelByPage()
         {
-            var bookOfRecipeDtos = _bookOfRecipeRepository.GetAllBooks();
+            var bookOfRecipeDtos = _bookOfRecipeRepository.GetAllBooks()
+                .Skip(page * ItemsPerPage).Take(ItemsPerPage);
             foreach (var book in bookOfRecipeDtos)
             {
                 Form.PanelBookOfRecipes.Controls.Add(new BookOfRecipeInfoControl(book));
@@ -65,6 +72,9 @@ namespace BookOfRecipes.UI.Processes
             Form.BtnToUserAccount.Click += ToUserAccount;
             Form.BtnSignOut.Click += SignOut;
             Form.BtnRefreshForm.Click += RefreshForm;
+            Form.BtnNextPage.Click += MoveToNextPage;
+            Form.BtnPreviousPage.Click += MoveToPreviousPage;
+            Form.BtnToAdminAccount.Click += ToAdminAccount;
         }
 
         private void Login(object sender, EventArgs e) 
@@ -83,11 +93,16 @@ namespace BookOfRecipes.UI.Processes
             _user = loginProcess.GetAuthorizedUser();
             if (_user != null)
             {
+                var userRole = _userRoleRepository.GetById(_user.UserRoleDtoId);
                 Form.LbWelcomeMessage.Text = string.Format("Welcome, {0}", _user.Login);
                 Form.BtnSignIn.Visible = false;
                 Form.BtnRegistration.Visible = false;
                 Form.BtnSignOut.Visible = true;
                 Form.BtnToUserAccount.Visible = true;
+                if (userRole.RoleName == "Admin")
+                {
+                    Form.BtnToAdminAccount.Visible = true;
+                }
             }
         }
 
@@ -100,6 +115,7 @@ namespace BookOfRecipes.UI.Processes
             Form.BtnRegistration.Visible = true;
             Form.BtnSignOut.Visible = false;
             Form.BtnToUserAccount.Visible = false;
+            Form.BtnToAdminAccount.Visible = false;
         }
 
         private void Registration(object sender, EventArgs e) 
@@ -116,9 +132,42 @@ namespace BookOfRecipes.UI.Processes
 
         private void RefreshForm(object sender, EventArgs e)
         {
-            _bookOfRecipeDtos.Clear();
+            ClearControlWithBooks();
+            FillPanelByPage();
+        }
+
+        private void MoveToNextPage(object sender, EventArgs e)
+        {
+            page++;
+            MoveToPage();
+        }
+
+        private void MoveToPreviousPage(object sender, EventArgs e)
+        {
+            page--;
+            if (page <= 0)
+            {
+                page = 0;
+            }
+            MoveToPage();
+        }
+
+        private void ToAdminAccount(object sender, EventArgs e)
+        {
+            adminProcess = new AdminProcess(_user);
+            adminProcess.Start();
+        }
+
+        private void ClearControlWithBooks()
+        {
             Form.PanelBookOfRecipes.Controls.Clear();
-            FillPanel();
+        }
+
+        private void MoveToPage()
+        {
+            Form.LbPage.Text = "Page: " + (page + 1);
+            ClearControlWithBooks();
+            FillPanelByPage();
         }
     }
 }

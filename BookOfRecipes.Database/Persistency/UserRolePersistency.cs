@@ -27,5 +27,7 @@ namespace BookOfRecipes.Database.Persistency
         public override UserRole GetById(DatabaseContext context, Guid id) => context.UserRoles.FirstOrDefault(x => x.Id == id);
 
         public UserRole GetByName(DatabaseContext context, string name) => context.UserRoles.FirstOrDefault(x => x.RoleName == name);
+
+        public IEnumerable<UserRole> GetAllRoles(DatabaseContext context) => context.UserRoles;
     }
 }

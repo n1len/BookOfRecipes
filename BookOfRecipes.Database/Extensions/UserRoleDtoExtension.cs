@@ -30,5 +30,10 @@ namespace BookOfRecipes.Database.Extensions
         {
             return UserRoleDtoMapper.Mapper.MapToDto(UserRolePersistency.Instance.GetByName(context, name));
         }
+
+        public static IEnumerable<UserRoleDto> GetAllRoles(DatabaseContext context)
+        {
+            return UserRoleDtoMapper.Mapper.MapToDtos(UserRolePersistency.Instance.GetAllRoles(context));
+        }
     }
 }

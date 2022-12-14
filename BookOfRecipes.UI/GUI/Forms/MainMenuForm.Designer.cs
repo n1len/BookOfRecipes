@@ -35,6 +35,10 @@
             this.btnSignOut = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnRefreshForm = new System.Windows.Forms.Button();
+            this.btnNextPage = new System.Windows.Forms.Button();
+            this.btnPreviousPage = new System.Windows.Forms.Button();
+            this.lbPage = new System.Windows.Forms.Label();
+            this.btnToAdminAccount = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnToUserAccount
@@ -68,7 +72,7 @@
             // 
             this.lbWelcomeMessage.AutoSize = true;
             this.lbWelcomeMessage.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbWelcomeMessage.Location = new System.Drawing.Point(762, 0);
+            this.lbWelcomeMessage.Location = new System.Drawing.Point(656, 0);
             this.lbWelcomeMessage.Name = "lbWelcomeMessage";
             this.lbWelcomeMessage.Size = new System.Drawing.Size(38, 15);
             this.lbWelcomeMessage.TabIndex = 3;
@@ -87,25 +91,65 @@
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Location = new System.Drawing.Point(212, 77);
+            this.panel1.Location = new System.Drawing.Point(114, 77);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(576, 361);
+            this.panel1.Size = new System.Drawing.Size(576, 233);
             this.panel1.TabIndex = 5;
             // 
             // btnRefreshForm
             // 
-            this.btnRefreshForm.Location = new System.Drawing.Point(50, 415);
+            this.btnRefreshForm.Location = new System.Drawing.Point(1, 281);
             this.btnRefreshForm.Name = "btnRefreshForm";
             this.btnRefreshForm.Size = new System.Drawing.Size(107, 23);
             this.btnRefreshForm.TabIndex = 6;
             this.btnRefreshForm.Text = "Refresh form";
             this.btnRefreshForm.UseVisualStyleBackColor = true;
             // 
+            // btnNextPage
+            // 
+            this.btnNextPage.Location = new System.Drawing.Point(615, 52);
+            this.btnNextPage.Name = "btnNextPage";
+            this.btnNextPage.Size = new System.Drawing.Size(75, 23);
+            this.btnNextPage.TabIndex = 7;
+            this.btnNextPage.Text = "Next page";
+            this.btnNextPage.UseVisualStyleBackColor = true;
+            // 
+            // btnPreviousPage
+            // 
+            this.btnPreviousPage.Location = new System.Drawing.Point(513, 52);
+            this.btnPreviousPage.Name = "btnPreviousPage";
+            this.btnPreviousPage.Size = new System.Drawing.Size(96, 23);
+            this.btnPreviousPage.TabIndex = 8;
+            this.btnPreviousPage.Text = "Previous page";
+            this.btnPreviousPage.UseVisualStyleBackColor = true;
+            // 
+            // lbPage
+            // 
+            this.lbPage.AutoSize = true;
+            this.lbPage.Location = new System.Drawing.Point(462, 56);
+            this.lbPage.Name = "lbPage";
+            this.lbPage.Size = new System.Drawing.Size(45, 15);
+            this.lbPage.TabIndex = 9;
+            this.lbPage.Text = "Page: 1";
+            // 
+            // btnToAdminAccount
+            // 
+            this.btnToAdminAccount.Location = new System.Drawing.Point(1, 47);
+            this.btnToAdminAccount.Name = "btnToAdminAccount";
+            this.btnToAdminAccount.Size = new System.Drawing.Size(75, 41);
+            this.btnToAdminAccount.TabIndex = 10;
+            this.btnToAdminAccount.Text = "To admin account";
+            this.btnToAdminAccount.UseVisualStyleBackColor = true;
+            // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(694, 311);
+            this.Controls.Add(this.btnToAdminAccount);
+            this.Controls.Add(this.lbPage);
+            this.Controls.Add(this.btnPreviousPage);
+            this.Controls.Add(this.btnNextPage);
             this.Controls.Add(this.btnRefreshForm);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSignOut);
@@ -129,5 +173,9 @@
         private Button btnSignOut;
         private FlowLayoutPanel panel1;
         private Button btnRefreshForm;
+        private Button btnNextPage;
+        private Button btnPreviousPage;
+        private Label lbPage;
+        private Button btnToAdminAccount;
     }
 }

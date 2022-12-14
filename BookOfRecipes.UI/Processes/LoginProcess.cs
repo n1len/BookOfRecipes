@@ -3,13 +3,15 @@ using BookOfRecipes.Engine.Interfaces;
 using BookOfRecipes.Engine.Repositories;
 using BookOfRecipes.UI.GUI.Forms;
 using BookOfRecipes.UI.Processes.Base;
-using System.IO.IsolatedStorage;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace BookOfRecipes.UI.Processes
 {
     internal class LoginProcess : BaseProcess
     {
         private readonly IUserRepository _userRepository;
+        private readonly IUserRoleRepository _userRoleRepository;
 
         public UserDto User { get; private set; }
 
@@ -21,12 +23,24 @@ namespace BookOfRecipes.UI.Processes
             Form.TbPassword.PasswordChar = '*';
 
             _userRepository = new UserRepository(ConnectionString);
+            _userRoleRepository = new UserRoleRepository(ConnectionString);
             InitializeHandle();
         }
 
         public void Start()
         {
             User = SignInUsingToken();
+            try
+            {
+                if (User is not null && User.IsBlocked)
+                {
+                    throw new Exception("Account blocked");
+                }
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message, "Sign in error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             if (User is null)
             {
                 Form.Show();
@@ -52,6 +66,28 @@ namespace BookOfRecipes.UI.Processes
 
         private void SignIn(object sender, EventArgs e)
         {
+            var admin = _userRepository.GetByLogin("admin");
+            if (admin is null)
+            {
+                if (_userRoleRepository.GetByName("Admin") is null)
+                {
+                    _userRoleRepository.Create(new UserRoleDto()
+                    {
+                        RoleName = "Admin"
+                    });
+                }
+
+                _userRepository.Create(new UserDto()
+                {
+                    Name = "admin",
+                    Surname = "admin",
+                    Login = "admin",
+                    Password = "admin",
+                    Token = GenerateSecuredToken(),
+                    UserRoleDtoId = _userRoleRepository.GetByName("Admin").Id
+                });
+            }
+
             var user = _userRepository.GetByLogin(Form.TbLogin.Text);
             try
             {
@@ -102,5 +138,21 @@ namespace BookOfRecipes.UI.Processes
 
             return true;
         }
+
+        private string GenerateSecuredToken()
+        {
+            string secureRandomString = CreateSecureRandomString();
+            using (var sha = SHA512.Create())
+            {
+                var bytes = Encoding.UTF8.GetBytes(secureRandomString);
+                var hash = sha.ComputeHash(bytes);
+                var hashString = Convert.ToBase64String(hash);
+
+                return hashString;
+            }
+        }
+
+        private static string CreateSecureRandomString(int count = 64) =>
+            Convert.ToBase64String(RandomNumberGenerator.GetBytes(count));
     }
 }

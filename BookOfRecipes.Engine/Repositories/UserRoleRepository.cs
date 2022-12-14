@@ -41,5 +41,10 @@ namespace BookOfRecipes.Engine.Repositories
         {
             return UserRoleDtoExtension.GetByName(name, _context);
         }
+
+        public IEnumerable<UserRoleDto> GetAllRoles() 
+        {
+            return UserRoleDtoExtension.GetAllRoles(_context);
+        }
     }
 }

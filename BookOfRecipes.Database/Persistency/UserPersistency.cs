@@ -29,5 +29,7 @@ namespace BookOfRecipes.Database.Persistency
         public User GetByToken(DatabaseContext context, string token) => context.Users.FirstOrDefault(x => x.Token == token);
 
         public User GetByLogin(DatabaseContext context, string login) => context.Users.FirstOrDefault(x => x.Login == login);
+
+        public IEnumerable<User> GetAllUsers(DatabaseContext context) => context.Users;
     }
 }

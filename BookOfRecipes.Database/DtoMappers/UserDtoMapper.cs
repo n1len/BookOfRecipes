@@ -51,5 +51,15 @@ namespace BookOfRecipes.Database.DtoMappers
                 BookOfRecipes = dto.BookOfRecipesDto.Cast<BookOfRecipe>().ToList()
             };
         }
+
+        public IEnumerable<UserDto> MapToDtos(IEnumerable<User> users) 
+        {
+            List<UserDto> dtos = new List<UserDto>();
+            foreach (var user in users)
+            {
+                dtos.Add(MapToDto(user));
+            }
+            return dtos;
+        }
     }
 }

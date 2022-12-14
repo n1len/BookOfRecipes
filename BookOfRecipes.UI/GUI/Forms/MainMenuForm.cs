@@ -22,8 +22,12 @@ namespace BookOfRecipes.UI.GUI.Forms
         public Button BtnToUserAccount => btnToUserAccount;
         public Button BtnSignOut => btnSignOut;
         public Button BtnRefreshForm => btnRefreshForm;
+        public Button BtnNextPage => btnNextPage;
+        public Button BtnPreviousPage => btnPreviousPage;
+        public Button BtnToAdminAccount => btnToAdminAccount;
 
         public Label LbWelcomeMessage => lbWelcomeMessage;
+        public Label LbPage => lbPage;
 
         public FlowLayoutPanel PanelBookOfRecipes => panel1;
     }
