@@ -32,7 +32,7 @@ namespace BookOfRecipes.UI.Processes
 
         public void Start()
         {
-            Form.Show();
+            Form.ShowDialog();
         }
 
         private void InitializeHandle()

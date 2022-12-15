@@ -22,6 +22,7 @@ namespace BookOfRecipes.UI.GUI.Controls
         private readonly UserDto _userDto;
 
         private ChangeUserRoleProcess changeUserRoleProcess;
+        private UserAccountProcess userAccountProcess;
 
         public UserInAdminPanelControl(UserDto userDto, string connectionString)
         {
@@ -46,6 +47,12 @@ namespace BookOfRecipes.UI.GUI.Controls
         {
             _userDto.IsBlocked = !_userDto.IsBlocked;
             _userRepository.Update(_userDto);
+        }
+
+        private void btnToUserAccount_Click(object sender, EventArgs e)
+        {
+            userAccountProcess = new UserAccountProcess(_userDto);
+            userAccountProcess.Start();
         }
 
         private void UpdateBlockButtonText(bool isBlocked)

@@ -43,7 +43,7 @@ namespace BookOfRecipes.UI.Processes
             }
             if (User is null)
             {
-                Form.Show();
+                Form.ShowDialog();
             }
         }
 

@@ -34,11 +34,12 @@
             this.lbLogin = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbRole = new System.Windows.Forms.Label();
+            this.btnToUserAccount = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnChangeBlockedState
             // 
-            this.btnChangeBlockedState.Location = new System.Drawing.Point(4, 88);
+            this.btnChangeBlockedState.Location = new System.Drawing.Point(4, 135);
             this.btnChangeBlockedState.Name = "btnChangeBlockedState";
             this.btnChangeBlockedState.Size = new System.Drawing.Size(75, 23);
             this.btnChangeBlockedState.TabIndex = 0;
@@ -92,10 +93,21 @@
             this.lbRole.TabIndex = 5;
             this.lbRole.Text = "user role";
             // 
+            // btnToUserAccount
+            // 
+            this.btnToUserAccount.Location = new System.Drawing.Point(4, 90);
+            this.btnToUserAccount.Name = "btnToUserAccount";
+            this.btnToUserAccount.Size = new System.Drawing.Size(75, 39);
+            this.btnToUserAccount.TabIndex = 6;
+            this.btnToUserAccount.Text = "To user account";
+            this.btnToUserAccount.UseVisualStyleBackColor = true;
+            this.btnToUserAccount.Click += new System.EventHandler(this.btnToUserAccount_Click);
+            // 
             // UserInAdminPanelControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnToUserAccount);
             this.Controls.Add(this.lbRole);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbLogin);
@@ -103,7 +115,7 @@
             this.Controls.Add(this.btnChangeRole);
             this.Controls.Add(this.btnChangeBlockedState);
             this.Name = "UserInAdminPanelControl";
-            this.Size = new System.Drawing.Size(135, 114);
+            this.Size = new System.Drawing.Size(135, 160);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,5 +129,6 @@
         private Label lbLogin;
         private Label label2;
         private Label lbRole;
+        private Button btnToUserAccount;
     }
 }

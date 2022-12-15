@@ -145,6 +145,8 @@
             this.Controls.Add(this.btnPreviousPage);
             this.Controls.Add(this.btnNextPage);
             this.Controls.Add(this.btnRefreshForm);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "RecipesInBookForm";
             this.Text = "RecipesInBookForm";
             this.ResumeLayout(false);

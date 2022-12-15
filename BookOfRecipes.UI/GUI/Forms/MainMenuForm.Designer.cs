@@ -72,11 +72,11 @@
             // 
             this.lbWelcomeMessage.AutoSize = true;
             this.lbWelcomeMessage.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbWelcomeMessage.Location = new System.Drawing.Point(656, 0);
+            this.lbWelcomeMessage.Location = new System.Drawing.Point(637, 0);
             this.lbWelcomeMessage.Name = "lbWelcomeMessage";
-            this.lbWelcomeMessage.Size = new System.Drawing.Size(38, 15);
+            this.lbWelcomeMessage.Size = new System.Drawing.Size(57, 15);
             this.lbWelcomeMessage.TabIndex = 3;
-            this.lbWelcomeMessage.Text = "label1";
+            this.lbWelcomeMessage.Text = "Welcome";
             this.lbWelcomeMessage.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnSignOut
@@ -157,6 +157,8 @@
             this.Controls.Add(this.btnSignIn);
             this.Controls.Add(this.btnRegistration);
             this.Controls.Add(this.btnToUserAccount);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MainMenuForm";
             this.Text = "MainMenuForm";
             this.ResumeLayout(false);

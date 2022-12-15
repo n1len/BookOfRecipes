@@ -63,6 +63,8 @@
             this.ClientSize = new System.Drawing.Size(144, 88);
             this.Controls.Add(this.btnChangeUserRole);
             this.Controls.Add(this.userRolesComboBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "ChangeUserRoleForm";
             this.Text = "ChangeUserRoleForm";
             ((System.ComponentModel.ISupportInitialize)(this.userRoleRepositoryBindingSource)).EndInit();

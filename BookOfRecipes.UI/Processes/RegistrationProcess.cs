@@ -23,9 +23,9 @@ namespace BookOfRecipes.UI.Processes
             InitializeComponents();
         }
 
-        public RegistrationForm Start()
+        public void Start()
         {
-            return Form;
+            Form.ShowDialog();
         }
 
         private void InitializeComponents()

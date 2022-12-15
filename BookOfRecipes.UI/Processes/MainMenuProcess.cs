@@ -121,7 +121,7 @@ namespace BookOfRecipes.UI.Processes
         private void Registration(object sender, EventArgs e) 
         {
             registrationProcess = new RegistrationProcess();
-            registrationProcess.Start().Show();
+            registrationProcess.Start();
         }
 
         private void ToUserAccount(object sender, EventArgs e) 

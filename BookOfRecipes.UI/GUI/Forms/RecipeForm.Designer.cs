@@ -45,6 +45,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(276, 318);
             this.Controls.Add(this.recipeOperationPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "RecipeForm";
             this.Text = "RecipeForm";
             this.ResumeLayout(false);

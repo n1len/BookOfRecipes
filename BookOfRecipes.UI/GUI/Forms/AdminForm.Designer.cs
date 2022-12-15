@@ -39,7 +39,7 @@
             // 
             this.panelWithUserAccounts.Location = new System.Drawing.Point(3, 32);
             this.panelWithUserAccounts.Name = "panelWithUserAccounts";
-            this.panelWithUserAccounts.Size = new System.Drawing.Size(442, 117);
+            this.panelWithUserAccounts.Size = new System.Drawing.Size(442, 166);
             this.panelWithUserAccounts.TabIndex = 0;
             // 
             // btnNextPage
@@ -82,12 +82,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 153);
+            this.ClientSize = new System.Drawing.Size(450, 201);
             this.Controls.Add(this.lbPage);
             this.Controls.Add(this.btnRefreshForm);
             this.Controls.Add(this.btnPreviousPage);
             this.Controls.Add(this.btnNextPage);
             this.Controls.Add(this.panelWithUserAccounts);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             this.ResumeLayout(false);

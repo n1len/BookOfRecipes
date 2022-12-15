@@ -157,6 +157,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnRegistration);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "RegistrationForm";
             this.Text = "RegistrationForm";
             this.ResumeLayout(false);

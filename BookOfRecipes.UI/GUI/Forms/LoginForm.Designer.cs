@@ -97,6 +97,8 @@
             this.Controls.Add(this.tbLogin);
             this.Controls.Add(this.Password);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.Text = "LoginForm";
             this.ResumeLayout(false);

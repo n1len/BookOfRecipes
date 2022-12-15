@@ -32,7 +32,7 @@ namespace BookOfRecipes.UI.Processes
         public void Start()
         {
             Form.RecipeOperationPanel.Controls.Add(new RecipeOperationControl(ConnectionString, _bookOfRecipeDto, _operationType, _recipeDto));
-            Form.Show();
+            Form.ShowDialog();
         }
 
         private void InitializeHandle()

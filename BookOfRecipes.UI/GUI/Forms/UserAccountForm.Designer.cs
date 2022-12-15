@@ -218,6 +218,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbName);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "UserAccountForm";
             this.Text = "UserAccountForm";
             this.ResumeLayout(false);
