@@ -45,12 +45,24 @@ namespace BookOfRecipes.UI.Processes
 
         private void FillPanelByPage()
         {
+            Form.Size = new Size(439, 242);
+            Form.LbCollectionIsEmpty.Visible = false;
+            Form.PanelWithUserAccounts.Visible = true;
             var users = _userRepository.GetAllUsers().Where(x => x.Id != _currentUserDto.Id)
                 .Skip(page * ItemsPerPage).Take(ItemsPerPage);
-            foreach (var user in users)
+            if (users.Any() )
             {
-                Form.PanelWithUserAccounts.Controls.Add(new UserInAdminPanelControl(user, ConnectionString));
+                foreach (var user in users)
+                {
+                    Form.PanelWithUserAccounts.Controls.Add(new UserInAdminPanelControl(user, ConnectionString));
+                }
+                return;
             }
+
+            Form.Size = new Size(439, 100);
+            Form.LbCollectionIsEmpty.Location = new Point(150, 30);
+            Form.LbCollectionIsEmpty.Visible = true;
+            Form.PanelWithUserAccounts.Visible = false;
         }
 
         private void InitializeHandle()

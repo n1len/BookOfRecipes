@@ -56,6 +56,7 @@
             // 
             // tbLogin
             // 
+            this.tbLogin.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tbLogin.Location = new System.Drawing.Point(26, 27);
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(132, 23);
@@ -63,6 +64,7 @@
             // 
             // tbPassword
             // 
+            this.tbPassword.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tbPassword.Location = new System.Drawing.Point(26, 71);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(132, 23);
@@ -70,26 +72,29 @@
             // 
             // btnSignIn
             // 
+            this.btnSignIn.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnSignIn.Location = new System.Drawing.Point(8, 110);
             this.btnSignIn.Name = "btnSignIn";
             this.btnSignIn.Size = new System.Drawing.Size(75, 23);
             this.btnSignIn.TabIndex = 4;
             this.btnSignIn.Text = "Sign In";
-            this.btnSignIn.UseVisualStyleBackColor = true;
+            this.btnSignIn.UseVisualStyleBackColor = false;
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnCancel.Location = new System.Drawing.Point(98, 110);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(181, 143);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSignIn);

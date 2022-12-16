@@ -28,5 +28,6 @@ namespace BookOfRecipes.UI.GUI.Forms
         public TextBox TbDescription => tbDescription;
 
         public Label LbPage => lbPage;
+        public Label LbCollectionIsEmpty => lbCollectionIsEmpty;
     }
 }

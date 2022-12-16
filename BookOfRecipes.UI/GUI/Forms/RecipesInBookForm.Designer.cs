@@ -38,43 +38,49 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbDescription = new System.Windows.Forms.TextBox();
             this.lbPage = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbCollectionIsEmpty = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnRefreshForm
             // 
+            this.btnRefreshForm.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnRefreshForm.Location = new System.Drawing.Point(455, 12);
             this.btnRefreshForm.Name = "btnRefreshForm";
             this.btnRefreshForm.Size = new System.Drawing.Size(83, 23);
             this.btnRefreshForm.TabIndex = 0;
             this.btnRefreshForm.Text = "Refresh form";
-            this.btnRefreshForm.UseVisualStyleBackColor = true;
+            this.btnRefreshForm.UseVisualStyleBackColor = false;
             // 
             // btnNextPage
             // 
+            this.btnNextPage.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnNextPage.Location = new System.Drawing.Point(463, 91);
             this.btnNextPage.Name = "btnNextPage";
             this.btnNextPage.Size = new System.Drawing.Size(75, 23);
             this.btnNextPage.TabIndex = 1;
             this.btnNextPage.Text = "Next page";
-            this.btnNextPage.UseVisualStyleBackColor = true;
+            this.btnNextPage.UseVisualStyleBackColor = false;
             // 
             // btnPreviousPage
             // 
+            this.btnPreviousPage.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnPreviousPage.Location = new System.Drawing.Point(365, 91);
             this.btnPreviousPage.Name = "btnPreviousPage";
             this.btnPreviousPage.Size = new System.Drawing.Size(92, 23);
             this.btnPreviousPage.TabIndex = 2;
             this.btnPreviousPage.Text = "Previous page";
-            this.btnPreviousPage.UseVisualStyleBackColor = true;
+            this.btnPreviousPage.UseVisualStyleBackColor = false;
             // 
             // btnCreateRecipe
             // 
+            this.btnCreateRecipe.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnCreateRecipe.Location = new System.Drawing.Point(12, 92);
             this.btnCreateRecipe.Name = "btnCreateRecipe";
             this.btnCreateRecipe.Size = new System.Drawing.Size(123, 23);
             this.btnCreateRecipe.TabIndex = 3;
             this.btnCreateRecipe.Text = "Create recipe";
-            this.btnCreateRecipe.UseVisualStyleBackColor = true;
+            this.btnCreateRecipe.UseVisualStyleBackColor = false;
             // 
             // recipesInBookPanel
             // 
@@ -94,6 +100,7 @@
             // 
             // tbTitle
             // 
+            this.tbTitle.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tbTitle.Location = new System.Drawing.Point(12, 23);
             this.tbTitle.Multiline = true;
             this.tbTitle.Name = "tbTitle";
@@ -113,6 +120,7 @@
             // 
             // tbDescription
             // 
+            this.tbDescription.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tbDescription.Location = new System.Drawing.Point(165, 23);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
@@ -130,11 +138,34 @@
             this.lbPage.TabIndex = 9;
             this.lbPage.Text = "Page: 1";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(132, 92);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(176, 19);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Collection of user\'s recipes";
+            // 
+            // lbCollectionIsEmpty
+            // 
+            this.lbCollectionIsEmpty.AutoSize = true;
+            this.lbCollectionIsEmpty.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lbCollectionIsEmpty.Location = new System.Drawing.Point(299, 4);
+            this.lbCollectionIsEmpty.Name = "lbCollectionIsEmpty";
+            this.lbCollectionIsEmpty.Size = new System.Drawing.Size(135, 19);
+            this.lbCollectionIsEmpty.TabIndex = 11;
+            this.lbCollectionIsEmpty.Text = "Collection is empty.";
+            // 
             // RecipesInBookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(550, 284);
+            this.Controls.Add(this.lbCollectionIsEmpty);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lbPage);
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.label2);
@@ -166,5 +197,7 @@
         private Label label2;
         private TextBox tbDescription;
         private Label lbPage;
+        private Label label3;
+        private Label lbCollectionIsEmpty;
     }
 }

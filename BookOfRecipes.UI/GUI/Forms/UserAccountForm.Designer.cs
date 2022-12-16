@@ -45,6 +45,8 @@
             this.btnNextPage = new System.Windows.Forms.Button();
             this.btnPreviousPage = new System.Windows.Forms.Button();
             this.lbPage = new System.Windows.Forms.Label();
+            this.lbCollectionIsEmpty = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -121,15 +123,17 @@
             // 
             // btnChangePassword
             // 
+            this.btnChangePassword.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnChangePassword.Location = new System.Drawing.Point(603, 216);
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.Size = new System.Drawing.Size(109, 23);
             this.btnChangePassword.TabIndex = 8;
             this.btnChangePassword.Text = "Change password";
-            this.btnChangePassword.UseVisualStyleBackColor = true;
+            this.btnChangePassword.UseVisualStyleBackColor = false;
             // 
             // tbNewPassword
             // 
+            this.tbNewPassword.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tbNewPassword.Location = new System.Drawing.Point(603, 187);
             this.tbNewPassword.Name = "tbNewPassword";
             this.tbNewPassword.Size = new System.Drawing.Size(100, 23);
@@ -146,46 +150,50 @@
             // 
             // btnCreateBookOfRecipe
             // 
+            this.btnCreateBookOfRecipe.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnCreateBookOfRecipe.Location = new System.Drawing.Point(16, 9);
             this.btnCreateBookOfRecipe.Name = "btnCreateBookOfRecipe";
             this.btnCreateBookOfRecipe.Size = new System.Drawing.Size(94, 53);
             this.btnCreateBookOfRecipe.TabIndex = 11;
             this.btnCreateBookOfRecipe.Text = "Create new book of recipe";
-            this.btnCreateBookOfRecipe.UseVisualStyleBackColor = true;
+            this.btnCreateBookOfRecipe.UseVisualStyleBackColor = false;
             // 
             // usersBookOfRecipePanel
             // 
             this.usersBookOfRecipePanel.Location = new System.Drawing.Point(15, 74);
             this.usersBookOfRecipePanel.Name = "usersBookOfRecipePanel";
-            this.usersBookOfRecipePanel.Size = new System.Drawing.Size(571, 165);
+            this.usersBookOfRecipePanel.Size = new System.Drawing.Size(571, 173);
             this.usersBookOfRecipePanel.TabIndex = 12;
             // 
             // btnRefreshForm
             // 
+            this.btnRefreshForm.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnRefreshForm.Location = new System.Drawing.Point(489, 12);
             this.btnRefreshForm.Name = "btnRefreshForm";
             this.btnRefreshForm.Size = new System.Drawing.Size(97, 23);
             this.btnRefreshForm.TabIndex = 13;
             this.btnRefreshForm.Text = "Refresh form";
-            this.btnRefreshForm.UseVisualStyleBackColor = true;
+            this.btnRefreshForm.UseVisualStyleBackColor = false;
             // 
             // btnNextPage
             // 
+            this.btnNextPage.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnNextPage.Location = new System.Drawing.Point(511, 45);
             this.btnNextPage.Name = "btnNextPage";
             this.btnNextPage.Size = new System.Drawing.Size(75, 23);
             this.btnNextPage.TabIndex = 14;
             this.btnNextPage.Text = "Next page";
-            this.btnNextPage.UseVisualStyleBackColor = true;
+            this.btnNextPage.UseVisualStyleBackColor = false;
             // 
             // btnPreviousPage
             // 
+            this.btnPreviousPage.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnPreviousPage.Location = new System.Drawing.Point(406, 45);
             this.btnPreviousPage.Name = "btnPreviousPage";
             this.btnPreviousPage.Size = new System.Drawing.Size(99, 23);
             this.btnPreviousPage.TabIndex = 15;
             this.btnPreviousPage.Text = "Previous page";
-            this.btnPreviousPage.UseVisualStyleBackColor = true;
+            this.btnPreviousPage.UseVisualStyleBackColor = false;
             // 
             // lbPage
             // 
@@ -196,11 +204,34 @@
             this.lbPage.TabIndex = 16;
             this.lbPage.Text = "Page: 1";
             // 
+            // lbCollectionIsEmpty
+            // 
+            this.lbCollectionIsEmpty.AutoSize = true;
+            this.lbCollectionIsEmpty.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lbCollectionIsEmpty.Location = new System.Drawing.Point(249, 7);
+            this.lbCollectionIsEmpty.Name = "lbCollectionIsEmpty";
+            this.lbCollectionIsEmpty.Size = new System.Drawing.Size(135, 19);
+            this.lbCollectionIsEmpty.TabIndex = 17;
+            this.lbCollectionIsEmpty.Text = "Collection is empty.";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(145, 47);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(170, 19);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Collection of user\'s books";
+            // 
             // UserAccountForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(753, 247);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lbCollectionIsEmpty);
             this.Controls.Add(this.lbPage);
             this.Controls.Add(this.btnPreviousPage);
             this.Controls.Add(this.btnNextPage);
@@ -246,5 +277,7 @@
         private Button btnNextPage;
         private Button btnPreviousPage;
         private Label lbPage;
+        private Label lbCollectionIsEmpty;
+        private Label label4;
     }
 }

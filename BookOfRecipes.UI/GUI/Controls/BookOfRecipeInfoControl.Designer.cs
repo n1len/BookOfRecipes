@@ -35,16 +35,18 @@
             // 
             // btnDetails
             // 
+            this.btnDetails.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnDetails.Location = new System.Drawing.Point(17, 86);
             this.btnDetails.Name = "btnDetails";
             this.btnDetails.Size = new System.Drawing.Size(75, 23);
             this.btnDetails.TabIndex = 0;
             this.btnDetails.Text = "Details";
-            this.btnDetails.UseVisualStyleBackColor = true;
+            this.btnDetails.UseVisualStyleBackColor = false;
             this.btnDetails.Click += new System.EventHandler(this.btnDetails_Click);
             // 
             // tbDescription
             // 
+            this.tbDescription.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tbDescription.Location = new System.Drawing.Point(3, 30);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
@@ -52,10 +54,10 @@
             this.tbDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbDescription.Size = new System.Drawing.Size(100, 56);
             this.tbDescription.TabIndex = 2;
-            this.tbDescription.Text = _bookOfRecipeDto.Description;
             // 
             // tbTitle
             // 
+            this.tbTitle.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tbTitle.Location = new System.Drawing.Point(3, 3);
             this.tbTitle.Multiline = true;
             this.tbTitle.Name = "tbTitle";
@@ -63,17 +65,19 @@
             this.tbTitle.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbTitle.Size = new System.Drawing.Size(100, 23);
             this.tbTitle.TabIndex = 3;
-            this.tbTitle.Text = _bookOfRecipeDto.Title;
             // 
             // BookOfRecipeInfoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.tbTitle);
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.btnDetails);
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "BookOfRecipeInfoControl";
-            this.Size = new System.Drawing.Size(108, 109);
+            this.Size = new System.Drawing.Size(106, 111);
             this.ResumeLayout(false);
             this.PerformLayout();
 

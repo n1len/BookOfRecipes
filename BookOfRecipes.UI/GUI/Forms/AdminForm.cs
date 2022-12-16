@@ -24,5 +24,6 @@ namespace BookOfRecipes.UI.GUI.Forms
         public FlowLayoutPanel PanelWithUserAccounts => panelWithUserAccounts;
 
         public Label LbPage => lbPage;
+        public Label LbCollectionIsEmpty => lbCollectionIsEmpty;
     }
 }

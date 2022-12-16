@@ -76,6 +76,7 @@
             // 
             // tbTitle
             // 
+            this.tbTitle.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tbTitle.Location = new System.Drawing.Point(15, 43);
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.Size = new System.Drawing.Size(244, 23);
@@ -83,6 +84,7 @@
             // 
             // tbDescription
             // 
+            this.tbDescription.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tbDescription.Location = new System.Drawing.Point(15, 159);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
@@ -92,6 +94,7 @@
             // 
             // tbTags
             // 
+            this.tbTags.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tbTags.Location = new System.Drawing.Point(15, 99);
             this.tbTags.Multiline = true;
             this.tbTags.Name = "tbTags";
@@ -101,18 +104,21 @@
             // 
             // btnOperation
             // 
+            this.btnOperation.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnOperation.Location = new System.Drawing.Point(102, 291);
             this.btnOperation.Name = "btnOperation";
             this.btnOperation.Size = new System.Drawing.Size(75, 23);
             this.btnOperation.TabIndex = 7;
             this.btnOperation.Text = "Operation";
-            this.btnOperation.UseVisualStyleBackColor = true;
+            this.btnOperation.UseVisualStyleBackColor = false;
             this.btnOperation.Click += new System.EventHandler(this.btnOperation_Click);
             // 
             // RecipeOperationControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.btnOperation);
             this.Controls.Add(this.tbTags);
             this.Controls.Add(this.tbDescription);
@@ -122,7 +128,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbOperationWithRecipe);
             this.Name = "RecipeOperationControl";
-            this.Size = new System.Drawing.Size(274, 317);
+            this.Size = new System.Drawing.Size(272, 315);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -54,12 +54,22 @@ namespace BookOfRecipes.UI.Processes
 
         private void FillPanelByPage()
         {
+            Form.LbCollectionIsEmpty.Visible = false;
+            Form.UsersBookOfRecipePanel.Visible = true;
             var bookOfRecipeDtosInPage = _bookOfRecipeRepository.GetBookOfRecipeDtosByUserId(_user.Id)
                 .Skip(page * ItemsPerPage).Take(ItemsPerPage);
-            foreach (var bookOfRecipeDto in bookOfRecipeDtosInPage)
+            if (bookOfRecipeDtosInPage.Any())
             {
-                Form.UsersBookOfRecipePanel.Controls.Add(new BookOfRecipeInUserAccountControl(bookOfRecipeDto, _user));
+                foreach (var bookOfRecipeDto in bookOfRecipeDtosInPage)
+                {
+                    Form.UsersBookOfRecipePanel.Controls.Add(new BookOfRecipeInUserAccountControl(bookOfRecipeDto, _user));
+                }
+                return;
             }
+
+            Form.LbCollectionIsEmpty.Location = new Point(220, 150);
+            Form.LbCollectionIsEmpty.Visible = true;
+            Form.UsersBookOfRecipePanel.Visible = false;
         }
 
         private void InitializeHandle()

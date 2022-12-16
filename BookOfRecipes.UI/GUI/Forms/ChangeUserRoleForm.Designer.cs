@@ -41,6 +41,7 @@
             // 
             // userRolesComboBox
             // 
+            this.userRolesComboBox.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.userRolesComboBox.FormattingEnabled = true;
             this.userRolesComboBox.Location = new System.Drawing.Point(12, 12);
             this.userRolesComboBox.Name = "userRolesComboBox";
@@ -49,17 +50,19 @@
             // 
             // btnChangeUserRole
             // 
+            this.btnChangeUserRole.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnChangeUserRole.Location = new System.Drawing.Point(33, 41);
             this.btnChangeUserRole.Name = "btnChangeUserRole";
             this.btnChangeUserRole.Size = new System.Drawing.Size(75, 40);
             this.btnChangeUserRole.TabIndex = 1;
             this.btnChangeUserRole.Text = "Change user\'s role";
-            this.btnChangeUserRole.UseVisualStyleBackColor = true;
+            this.btnChangeUserRole.UseVisualStyleBackColor = false;
             // 
             // ChangeUserRoleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(144, 88);
             this.Controls.Add(this.btnChangeUserRole);
             this.Controls.Add(this.userRolesComboBox);

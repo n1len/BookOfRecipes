@@ -87,13 +87,25 @@ namespace BookOfRecipes.UI.Processes
 
         private void FillPanelWithRecipesByPage(UserDto userDto)
         {
+            Form.Size = new Size(566, 323);
+            Form.LbCollectionIsEmpty.Visible = false;
+            Form.RecipesInBookPanel.Visible = true;
             var recipes = _recipeRepository.GetRecipeDtosByBookId(_bookOfRecipeDto.Id)
                 .Skip(page * ItemsPerPage).Take(ItemsPerPage);
 
-            foreach (var recipe in recipes)
+            if (recipes.Any())
             {
-                Form.RecipesInBookPanel.Controls.Add(new RecipeInBookControl(recipe, userDto, ConnectionString));
+                foreach (var recipe in recipes)
+                {
+                    Form.RecipesInBookPanel.Controls.Add(new RecipeInBookControl(recipe, userDto, ConnectionString));
+                }
+                return;
             }
+
+            Form.Size = new Size(566, 175);
+            Form.LbCollectionIsEmpty.Location = new Point(190,112);
+            Form.LbCollectionIsEmpty.Visible = true;
+            Form.RecipesInBookPanel.Visible = false;
         }
 
         private void FillTextBoxes()

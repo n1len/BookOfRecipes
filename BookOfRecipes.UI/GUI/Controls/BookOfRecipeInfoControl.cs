@@ -21,8 +21,10 @@ namespace BookOfRecipes.UI.GUI.Controls
         public BookOfRecipeInfoControl(BookOfRecipeDto bookOfRecipeDto)
         {
             _bookOfRecipeDto = bookOfRecipeDto;
-
+            
             InitializeComponent();
+            tbDescription.Text = _bookOfRecipeDto.Description;
+            tbTitle.Text = _bookOfRecipeDto.Title;
         }
 
         private void btnDetails_Click(object sender, EventArgs e)

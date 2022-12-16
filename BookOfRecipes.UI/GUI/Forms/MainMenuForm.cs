@@ -28,6 +28,7 @@ namespace BookOfRecipes.UI.GUI.Forms
 
         public Label LbWelcomeMessage => lbWelcomeMessage;
         public Label LbPage => lbPage;
+        public Label LbCollectionIsEmpty => lbCollectionIsEmpty;
 
         public FlowLayoutPanel PanelBookOfRecipes => panel1;
     }

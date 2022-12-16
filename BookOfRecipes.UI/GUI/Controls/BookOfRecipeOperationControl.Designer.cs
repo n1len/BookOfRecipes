@@ -40,12 +40,13 @@
             // 
             // btnOperation
             // 
+            this.btnOperation.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnOperation.Location = new System.Drawing.Point(127, 338);
             this.btnOperation.Name = "btnOperation";
             this.btnOperation.Size = new System.Drawing.Size(75, 23);
             this.btnOperation.TabIndex = 0;
             this.btnOperation.Text = "Operation";
-            this.btnOperation.UseVisualStyleBackColor = true;
+            this.btnOperation.UseVisualStyleBackColor = false;
             this.btnOperation.Click += new System.EventHandler(this.btnOperation_Click);
             // 
             // lbControlName
@@ -86,6 +87,7 @@
             // 
             // tbDescription
             // 
+            this.tbDescription.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tbDescription.Location = new System.Drawing.Point(24, 112);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
@@ -94,6 +96,7 @@
             // 
             // tbTitle
             // 
+            this.tbTitle.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tbTitle.Location = new System.Drawing.Point(24, 56);
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.Size = new System.Drawing.Size(273, 23);
@@ -101,6 +104,7 @@
             // 
             // tbImage
             // 
+            this.tbImage.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tbImage.Location = new System.Drawing.Point(24, 309);
             this.tbImage.Name = "tbImage";
             this.tbImage.Size = new System.Drawing.Size(273, 23);
@@ -110,6 +114,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.tbImage);
             this.Controls.Add(this.tbTitle);
             this.Controls.Add(this.tbDescription);
@@ -119,7 +125,7 @@
             this.Controls.Add(this.lbControlName);
             this.Controls.Add(this.btnOperation);
             this.Name = "BookOfRecipeOperationControl";
-            this.Size = new System.Drawing.Size(321, 364);
+            this.Size = new System.Drawing.Size(319, 362);
             this.ResumeLayout(false);
             this.PerformLayout();
 

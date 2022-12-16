@@ -22,6 +22,7 @@ namespace BookOfRecipes.UI.GUI.Forms
         public Label LbLogin => lbLogin;
         public Label LbRoleName => lbRoleName;
         public Label LbPage => lbPage;
+        public Label LbCollectionIsEmpty => lbCollectionIsEmpty;
 
         public Button BtnChangePassword => btnChangePassword;
         public Button BtnCreateBookOfRecipe => btnCreateBookOfRecipe;

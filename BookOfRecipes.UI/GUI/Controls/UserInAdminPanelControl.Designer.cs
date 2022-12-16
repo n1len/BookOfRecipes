@@ -39,22 +39,24 @@
             // 
             // btnChangeBlockedState
             // 
+            this.btnChangeBlockedState.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnChangeBlockedState.Location = new System.Drawing.Point(4, 135);
             this.btnChangeBlockedState.Name = "btnChangeBlockedState";
             this.btnChangeBlockedState.Size = new System.Drawing.Size(75, 23);
             this.btnChangeBlockedState.TabIndex = 0;
             this.btnChangeBlockedState.Text = "Block";
-            this.btnChangeBlockedState.UseVisualStyleBackColor = true;
+            this.btnChangeBlockedState.UseVisualStyleBackColor = false;
             this.btnChangeBlockedState.Click += new System.EventHandler(this.btnChangeBlockedState_Click);
             // 
             // btnChangeRole
             // 
+            this.btnChangeRole.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnChangeRole.Location = new System.Drawing.Point(4, 46);
             this.btnChangeRole.Name = "btnChangeRole";
             this.btnChangeRole.Size = new System.Drawing.Size(75, 38);
             this.btnChangeRole.TabIndex = 1;
             this.btnChangeRole.Text = "Change role";
-            this.btnChangeRole.UseVisualStyleBackColor = true;
+            this.btnChangeRole.UseVisualStyleBackColor = false;
             this.btnChangeRole.Click += new System.EventHandler(this.btnChangeRole_Click);
             // 
             // label1
@@ -95,18 +97,21 @@
             // 
             // btnToUserAccount
             // 
+            this.btnToUserAccount.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnToUserAccount.Location = new System.Drawing.Point(4, 90);
             this.btnToUserAccount.Name = "btnToUserAccount";
             this.btnToUserAccount.Size = new System.Drawing.Size(75, 39);
             this.btnToUserAccount.TabIndex = 6;
             this.btnToUserAccount.Text = "To user account";
-            this.btnToUserAccount.UseVisualStyleBackColor = true;
+            this.btnToUserAccount.UseVisualStyleBackColor = false;
             this.btnToUserAccount.Click += new System.EventHandler(this.btnToUserAccount_Click);
             // 
             // UserInAdminPanelControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.btnToUserAccount);
             this.Controls.Add(this.lbRole);
             this.Controls.Add(this.label2);
@@ -115,7 +120,7 @@
             this.Controls.Add(this.btnChangeRole);
             this.Controls.Add(this.btnChangeBlockedState);
             this.Name = "UserInAdminPanelControl";
-            this.Size = new System.Drawing.Size(135, 160);
+            this.Size = new System.Drawing.Size(133, 161);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -61,23 +61,30 @@ namespace BookOfRecipes.UI.Processes
                 });
             }
 
-            userRepository.Create(new Database.Dtos.UserDto()
+            var userDto = userRepository.GetByLogin(Form.TbLogin.Text);
+            if (userDto == null)
             {
-                Name = Form.TbName.Text,
-                Surname = Form.TbSurname.Text,
-                Login = Form.TbLogin.Text,
-                Password = Form.TbPassword.Text,
-                Token = GenerateSecuredToken(),
-                UserRoleDtoId = userRoleRepository.GetByName("User").Id
-            });
+                userRepository.Create(new Database.Dtos.UserDto()
+                {
+                    Name = Form.TbName.Text,
+                    Surname = Form.TbSurname.Text,
+                    Login = Form.TbLogin.Text,
+                    Password = Form.TbPassword.Text,
+                    Token = GenerateSecuredToken(),
+                    UserRoleDtoId = userRoleRepository.GetByName("User").Id
+                });
 
-            DialogResult result = MessageBox.Show("Successfully registered", "Registration completed",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult result = MessageBox.Show("Successfully registered", "Registration completed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            if (result == DialogResult.OK)
-            {
-                Form.Close();
+                if (result == DialogResult.OK)
+                {
+                    Form.Close();
+                }
             }
+
+            MessageBox.Show("User with entered login exist", "Registration error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void Cancel(object sender, EventArgs e) 

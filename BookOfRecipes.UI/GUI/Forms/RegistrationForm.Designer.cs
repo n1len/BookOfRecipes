@@ -44,21 +44,23 @@
             // 
             // btnRegistration
             // 
+            this.btnRegistration.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnRegistration.Location = new System.Drawing.Point(12, 243);
             this.btnRegistration.Name = "btnRegistration";
             this.btnRegistration.Size = new System.Drawing.Size(84, 23);
             this.btnRegistration.TabIndex = 0;
             this.btnRegistration.Text = "Registration";
-            this.btnRegistration.UseVisualStyleBackColor = true;
+            this.btnRegistration.UseVisualStyleBackColor = false;
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnCancel.Location = new System.Drawing.Point(119, 243);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -107,6 +109,7 @@
             // 
             // tbLogin
             // 
+            this.tbLogin.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tbLogin.Location = new System.Drawing.Point(29, 27);
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(148, 23);
@@ -114,6 +117,7 @@
             // 
             // tbName
             // 
+            this.tbName.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tbName.Location = new System.Drawing.Point(29, 71);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(148, 23);
@@ -121,6 +125,7 @@
             // 
             // tbSurname
             // 
+            this.tbSurname.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tbSurname.Location = new System.Drawing.Point(29, 112);
             this.tbSurname.Name = "tbSurname";
             this.tbSurname.Size = new System.Drawing.Size(148, 23);
@@ -128,6 +133,7 @@
             // 
             // tbPassword
             // 
+            this.tbPassword.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tbPassword.Location = new System.Drawing.Point(29, 156);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(148, 23);
@@ -135,6 +141,7 @@
             // 
             // tbConfirmPassword
             // 
+            this.tbConfirmPassword.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tbConfirmPassword.Location = new System.Drawing.Point(29, 200);
             this.tbConfirmPassword.Name = "tbConfirmPassword";
             this.tbConfirmPassword.Size = new System.Drawing.Size(148, 23);
@@ -144,6 +151,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(205, 275);
             this.Controls.Add(this.tbConfirmPassword);
             this.Controls.Add(this.tbPassword);
