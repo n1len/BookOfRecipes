@@ -1,33 +1,43 @@
-﻿using BookOfRecipes.Shared.Records;
+﻿using BookOfRecipes.Database.Interfaces;
+using BookOfRecipes.Shared.Records;
 
 namespace BookOfRecipes.Database.Persistency
 {
     public class UserRolePersistency : PersistencyObject<UserRole>
     {
+        private readonly IDatabaseContextFactory<DatabaseContext> _databaseContextFactory;
+        private readonly DatabaseContext _context;
+
         public static UserRolePersistency Instance => new UserRolePersistency();
 
-        public override void Create(DatabaseContext context, UserRole entity)
+        public UserRolePersistency()
         {
-            context.UserRoles.Add(entity);
-            base.SaveChanges(context);
+            _databaseContextFactory = new DatabaseContextFactory();
+            _context = _databaseContextFactory.CreateDatabaseContext(ConnectionString);
         }
 
-        public override void Delete(DatabaseContext context, UserRole entity)
+        public override void Create(UserRole entity)
         {
-            context.UserRoles.Remove(entity);
-            base.SaveChanges(context);
+            _context.UserRoles.Add(entity);
+            base.SaveChanges(_context);
         }
 
-        public override void Update(DatabaseContext context, UserRole entity)
+        public override void Delete(UserRole entity)
         {
-            context.UserRoles.Update(entity);
-            base.SaveChanges(context);
+            _context.UserRoles.Remove(entity);
+            base.SaveChanges(_context);
         }
 
-        public override UserRole GetById(DatabaseContext context, Guid id) => context.UserRoles.FirstOrDefault(x => x.Id == id);
+        public override void Update(UserRole entity)
+        {
+            _context.UserRoles.Update(entity);
+            base.SaveChanges(_context);
+        }
 
-        public UserRole GetByName(DatabaseContext context, string name) => context.UserRoles.FirstOrDefault(x => x.RoleName == name);
+        public override UserRole GetById(Guid id) => _context.UserRoles.FirstOrDefault(x => x.Id == id);
 
-        public IEnumerable<UserRole> GetAllRoles(DatabaseContext context) => context.UserRoles;
+        public UserRole GetByName(string name) => _context.UserRoles.FirstOrDefault(x => x.RoleName == name);
+
+        public IEnumerable<UserRole> GetAllRoles() => _context.UserRoles;
     }
 }

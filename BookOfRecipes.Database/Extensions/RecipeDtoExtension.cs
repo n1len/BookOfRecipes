@@ -6,29 +6,34 @@ namespace BookOfRecipes.Database.Extensions
 {
     public static class RecipeDtoExtension
     {
-        public static void Create(this RecipeDto recipeDto, DatabaseContext context)
+        public static void Create(this RecipeDto recipeDto, string connectionString)
         {
-            RecipePersistency.Instance.Create(context, RecipeDtoMapper.Mapper.MapToRecord(recipeDto));
+            RecipePersistency.ConnectionString = connectionString;
+            RecipePersistency.Instance.Create(RecipeDtoMapper.Mapper.MapToRecord(recipeDto));
         }
 
-        public static void Update(this RecipeDto recipeDto, DatabaseContext context)
+        public static void Update(this RecipeDto recipeDto, string connectionString)
         {
-            RecipePersistency.Instance.Update(context, RecipeDtoMapper.Mapper.MapToRecord(recipeDto));
+            RecipePersistency.ConnectionString = connectionString;
+            RecipePersistency.Instance.Update(RecipeDtoMapper.Mapper.MapToRecord(recipeDto));
         }
 
-        public static void Delete(this RecipeDto recipeDto, DatabaseContext context)
+        public static void Delete(this RecipeDto recipeDto, string connectionString)
         {
-            RecipePersistency.Instance.Delete(context, RecipeDtoMapper.Mapper.MapToRecord(recipeDto));
+            RecipePersistency.ConnectionString = connectionString;
+            RecipePersistency.Instance.Delete(RecipeDtoMapper.Mapper.MapToRecord(recipeDto));
         }
 
-        public static RecipeDto GetById(Guid id, DatabaseContext context)
+        public static RecipeDto GetById(Guid id, string connectionString)
         {
-            return RecipeDtoMapper.Mapper.MapToDto(RecipePersistency.Instance.GetById(context, id));
+            RecipePersistency.ConnectionString = connectionString;
+            return RecipeDtoMapper.Mapper.MapToDto(RecipePersistency.Instance.GetById(id));
         }
 
-        public static IEnumerable<RecipeDto> GetRecipeDtosByBookId(Guid bookId, DatabaseContext context)
+        public static IEnumerable<RecipeDto> GetRecipeDtosByBookId(Guid bookId, string connectionString)
         {
-            return RecipeDtoMapper.Mapper.MapToDtos(RecipePersistency.Instance.GetRecipeDtosByBookId(context, bookId));
+            RecipePersistency.ConnectionString = connectionString;
+            return RecipeDtoMapper.Mapper.MapToDtos(RecipePersistency.Instance.GetRecipeDtosByBookId(bookId));
         }
     }
 }

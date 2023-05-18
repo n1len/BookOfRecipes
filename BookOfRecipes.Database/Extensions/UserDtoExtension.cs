@@ -6,39 +6,46 @@ namespace BookOfRecipes.Database.Extensions
 {
     public static class UserDtoExtension
     {
-        public static void Create(this UserDto userDto, DatabaseContext context)
+        public static void Create(this UserDto userDto, string connectionString)
         {
-            UserPersistency.Instance.Create(context, UserDtoMapper.Mapper.MapToRecord(userDto));
+            UserPersistency.ConnectionString = connectionString;
+            UserPersistency.Instance.Create(UserDtoMapper.Mapper.MapToRecord(userDto));
         }
 
-        public static void Update(this UserDto userDto, DatabaseContext context)
+        public static void Update(this UserDto userDto, string connectionString)
         {
-            UserPersistency.Instance.Update(context, UserDtoMapper.Mapper.MapToRecord(userDto));
+            UserPersistency.ConnectionString = connectionString;
+            UserPersistency.Instance.Update(UserDtoMapper.Mapper.MapToRecord(userDto));
         }
 
-        public static void Delete(this UserDto userDto, DatabaseContext context)
+        public static void Delete(this UserDto userDto, string connectionString)
         {
-            UserPersistency.Instance.Delete(context, UserDtoMapper.Mapper.MapToRecord(userDto));
+            UserPersistency.ConnectionString = connectionString;
+            UserPersistency.Instance.Delete(UserDtoMapper.Mapper.MapToRecord(userDto));
         }
 
-        public static UserDto GetById(Guid id, DatabaseContext context)
+        public static UserDto GetById(Guid id, string connectionString)
         {
-            return UserDtoMapper.Mapper.MapToDto(UserPersistency.Instance.GetById(context, id));
+            UserPersistency.ConnectionString = connectionString;
+            return UserDtoMapper.Mapper.MapToDto(UserPersistency.Instance.GetById(id));
         }
 
-        public static UserDto GetByToken(string token, DatabaseContext context)
+        public static UserDto GetByToken(string token, string connectionString)
         {
-            return UserDtoMapper.Mapper.MapToDto(UserPersistency.Instance.GetByToken(context, token));
+            UserPersistency.ConnectionString = connectionString;
+            return UserDtoMapper.Mapper.MapToDto(UserPersistency.Instance.GetByToken(token));
         }
 
-        public static UserDto GetByLogin(string login, DatabaseContext context)
+        public static UserDto GetByLogin(string login, string connectionString)
         {
-            return UserDtoMapper.Mapper.MapToDto(UserPersistency.Instance.GetByLogin(context, login));
+            UserPersistency.ConnectionString = connectionString;
+            return UserDtoMapper.Mapper.MapToDto(UserPersistency.Instance.GetByLogin(login));
         }
 
-        public static IEnumerable<UserDto> GetAllUsers(DatabaseContext context)
+        public static IEnumerable<UserDto> GetAllUsers(string connectionString)
         {
-            return UserDtoMapper.Mapper.MapToDtos(UserPersistency.Instance.GetAllUsers(context));
+            UserPersistency.ConnectionString = connectionString;
+            return UserDtoMapper.Mapper.MapToDtos(UserPersistency.Instance.GetAllUsers());
         }
     }
 }

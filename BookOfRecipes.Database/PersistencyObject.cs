@@ -2,10 +2,11 @@
 {
     public abstract class PersistencyObject<T>
     {
-        public abstract void Create(DatabaseContext context, T entity);
-        public abstract void Update(DatabaseContext context, T entity);
-        public abstract void Delete(DatabaseContext context, T entity);
-        public abstract T GetById(DatabaseContext context, Guid id);
+        public static string ConnectionString { get; set; } = string.Empty;
+        public abstract void Create(T entity);
+        public abstract void Update(T entity);
+        public abstract void Delete(T entity);
+        public abstract T GetById(Guid id);
         protected virtual void SaveChanges(DatabaseContext context) => context.SaveChanges();
     }
 }

@@ -6,24 +6,28 @@ namespace BookOfRecipes.Database.Extensions
 {
     public static class LikeOnRecipeDtoExtension
     {
-        public static void Create(this LikeOnRecipeDto likeOnRecipeDto, DatabaseContext context)
+        public static void Create(this LikeOnRecipeDto likeOnRecipeDto, string connectionString)
         {
-            LikeOnRecipePersistency.Instance.Create(context, LikeOnRecipeDtoMapper.Mapper.MapToRecord(likeOnRecipeDto));
+            LikeOnRecipePersistency.ConnectionString = connectionString;
+            LikeOnRecipePersistency.Instance.Create(LikeOnRecipeDtoMapper.Mapper.MapToRecord(likeOnRecipeDto));
         }
 
-        public static void Update(this LikeOnRecipeDto likeOnRecipeDto, DatabaseContext context)
+        public static void Update(this LikeOnRecipeDto likeOnRecipeDto, string connectionString)
         {
-            LikeOnRecipePersistency.Instance.Update(context, LikeOnRecipeDtoMapper.Mapper.MapToRecord(likeOnRecipeDto));
+            LikeOnRecipePersistency.ConnectionString = connectionString;
+            LikeOnRecipePersistency.Instance.Update(LikeOnRecipeDtoMapper.Mapper.MapToRecord(likeOnRecipeDto));
         }
 
-        public static void Delete(this LikeOnRecipeDto likeOnRecipeDto, DatabaseContext context)
+        public static void Delete(this LikeOnRecipeDto likeOnRecipeDto, string connectionString)
         {
-            LikeOnRecipePersistency.Instance.Delete(context, LikeOnRecipeDtoMapper.Mapper.MapToRecord(likeOnRecipeDto));
+            LikeOnRecipePersistency.ConnectionString = connectionString;
+            LikeOnRecipePersistency.Instance.Delete(LikeOnRecipeDtoMapper.Mapper.MapToRecord(likeOnRecipeDto));
         }
 
-        public static LikeOnRecipeDto GetById(Guid id, DatabaseContext context)
+        public static LikeOnRecipeDto GetById(Guid id, string connectionString)
         {
-            return LikeOnRecipeDtoMapper.Mapper.MapToDto(LikeOnRecipePersistency.Instance.GetById(context, id));
+            LikeOnRecipePersistency.ConnectionString = connectionString;
+            return LikeOnRecipeDtoMapper.Mapper.MapToDto(LikeOnRecipePersistency.Instance.GetById(id));
         }
     }
 }

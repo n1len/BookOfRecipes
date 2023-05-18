@@ -6,34 +6,40 @@ namespace BookOfRecipes.Database.Extensions
 {
     public static class UserRoleDtoExtension
     {
-        public static void Create(this UserRoleDto userRoleDto, DatabaseContext context)
+        public static void Create(this UserRoleDto userRoleDto, string connectionString)
         {
-            UserRolePersistency.Instance.Create(context, UserRoleDtoMapper.Mapper.MapToRecord(userRoleDto));
+            UserRolePersistency.ConnectionString = connectionString;
+            UserRolePersistency.Instance.Create(UserRoleDtoMapper.Mapper.MapToRecord(userRoleDto));
         }
 
-        public static void Update(this UserRoleDto userRoleDto, DatabaseContext context)
+        public static void Update(this UserRoleDto userRoleDto, string connectionString)
         {
-            UserRolePersistency.Instance.Update(context, UserRoleDtoMapper.Mapper.MapToRecord(userRoleDto));
+            UserRolePersistency.ConnectionString = connectionString;
+            UserRolePersistency.Instance.Update(UserRoleDtoMapper.Mapper.MapToRecord(userRoleDto));
         }
 
-        public static void Delete(this UserRoleDto userRoleDto, DatabaseContext context)
+        public static void Delete(this UserRoleDto userRoleDto, string connectionString)
         {
-            UserRolePersistency.Instance.Delete(context, UserRoleDtoMapper.Mapper.MapToRecord(userRoleDto));
+            UserRolePersistency.ConnectionString = connectionString;
+            UserRolePersistency.Instance.Delete(UserRoleDtoMapper.Mapper.MapToRecord(userRoleDto));
         }
 
-        public static UserRoleDto GetById(Guid id, DatabaseContext context)
+        public static UserRoleDto GetById(Guid id, string connectionString)
         {
-            return UserRoleDtoMapper.Mapper.MapToDto(UserRolePersistency.Instance.GetById(context, id));
+            UserRolePersistency.ConnectionString = connectionString;
+            return UserRoleDtoMapper.Mapper.MapToDto(UserRolePersistency.Instance.GetById(id));
         }
 
-        public static UserRoleDto GetByName(string name, DatabaseContext context)
+        public static UserRoleDto GetByName(string name, string connectionString)
         {
-            return UserRoleDtoMapper.Mapper.MapToDto(UserRolePersistency.Instance.GetByName(context, name));
+            UserRolePersistency.ConnectionString = connectionString;
+            return UserRoleDtoMapper.Mapper.MapToDto(UserRolePersistency.Instance.GetByName(name));
         }
 
-        public static IEnumerable<UserRoleDto> GetAllRoles(DatabaseContext context)
+        public static IEnumerable<UserRoleDto> GetAllRoles(string connectionString)
         {
-            return UserRoleDtoMapper.Mapper.MapToDtos(UserRolePersistency.Instance.GetAllRoles(context));
+            UserRolePersistency.ConnectionString = connectionString;
+            return UserRoleDtoMapper.Mapper.MapToDtos(UserRolePersistency.Instance.GetAllRoles());
         }
     }
 }

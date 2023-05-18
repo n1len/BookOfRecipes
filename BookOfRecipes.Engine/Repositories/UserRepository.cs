@@ -1,6 +1,4 @@
-﻿using BookOfRecipes.Database;
-using BookOfRecipes.Database.Dtos;
-using BookOfRecipes.Database.Interfaces;
+﻿using BookOfRecipes.Database.Dtos;
 using BookOfRecipes.Database.Extensions;
 using BookOfRecipes.Engine.Interfaces;
 using System.IO.IsolatedStorage;
@@ -9,51 +7,49 @@ namespace BookOfRecipes.Engine.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly IDatabaseContextFactory<DatabaseContext> _databaseContextFactory;
-        private readonly DatabaseContext _context;
+        private readonly string _connectionString;
         private readonly IsolatedStorageFile _isoStore;
 
         public UserRepository(string connectionString)
         {
-            _databaseContextFactory = new DatabaseContextFactory();
-            _context = _databaseContextFactory.CreateDatabaseContext(connectionString);
+            _connectionString = connectionString;
             _isoStore = IsolatedStorageFile.GetStore(IsolatedStorageScope.User | IsolatedStorageScope.Assembly, null, null);
         }
 
         public void Create(UserDto userDto)
         {
-            userDto.Create(_context);
+            userDto.Create(_connectionString);
             CreateIsolatedStorageWithToken(userDto.Token);
         }
 
         public void Update(UserDto userDto)
         {
-            userDto.Update(_context);
+            userDto.Update(_connectionString);
         }
 
         public void Delete(UserDto userDto)
         {
-            userDto.Delete(_context);
+            userDto.Delete(_connectionString);
         }
 
         public UserDto GetById(Guid id)
         {
-            return UserDtoExtension.GetById(id, _context);
+            return UserDtoExtension.GetById(id, _connectionString);
         }
 
         public UserDto GetByToken()
         {
-            return UserDtoExtension.GetByToken(GetTokenFromIsolatedStorage(), _context);
+            return UserDtoExtension.GetByToken(GetTokenFromIsolatedStorage(), _connectionString);
         }
 
         public UserDto GetByLogin(string login)
         {
-            return UserDtoExtension.GetByLogin(login, _context);
+            return UserDtoExtension.GetByLogin(login, _connectionString);
         }
 
         public IEnumerable<UserDto> GetAllUsers() 
         {
-            return UserDtoExtension.GetAllUsers(_context);
+            return UserDtoExtension.GetAllUsers(_connectionString);
         }
 
         public void CreateIsolatedStorageWithToken(string token)

@@ -1,6 +1,4 @@
-﻿using BookOfRecipes.Database;
-using BookOfRecipes.Database.Dtos;
-using BookOfRecipes.Database.Interfaces;
+﻿using BookOfRecipes.Database.Dtos;
 using BookOfRecipes.Database.Extensions;
 using BookOfRecipes.Engine.Interfaces;
 
@@ -8,43 +6,41 @@ namespace BookOfRecipes.Engine.Repositories
 {
     public class UserRoleRepository : IUserRoleRepository
     {
-        private readonly IDatabaseContextFactory<DatabaseContext> _databaseContextFactory;
-        private readonly DatabaseContext _context;
+        private readonly string _connectionString;
 
         public UserRoleRepository(string connectionString)
         {
-            _databaseContextFactory = new DatabaseContextFactory();
-            _context = _databaseContextFactory.CreateDatabaseContext(connectionString);
+            _connectionString = connectionString;
         }
 
         public void Create(UserRoleDto userRoleDto)
         {
-            userRoleDto.Create(_context);
+            userRoleDto.Create(_connectionString);
         }
 
         public void Update(UserRoleDto userRoleDto)
         {
-            userRoleDto.Update(_context);
+            userRoleDto.Update(_connectionString);
         }
 
         public void Delete(UserRoleDto userRoleDto)
         {
-            userRoleDto.Delete(_context);
+            userRoleDto.Delete(_connectionString);
         }
 
         public UserRoleDto GetById(Guid id)
         {
-            return UserRoleDtoExtension.GetById(id, _context);
+            return UserRoleDtoExtension.GetById(id, _connectionString);
         }
 
         public UserRoleDto GetByName(string name)
         {
-            return UserRoleDtoExtension.GetByName(name, _context);
+            return UserRoleDtoExtension.GetByName(name, _connectionString);
         }
 
         public IEnumerable<UserRoleDto> GetAllRoles() 
         {
-            return UserRoleDtoExtension.GetAllRoles(_context);
+            return UserRoleDtoExtension.GetAllRoles(_connectionString);
         }
     }
 }

@@ -6,24 +6,28 @@ namespace BookOfRecipes.Database.Extensions
 {
     public static class UserRecipesCartDtoExtension
     {
-        public static void Create(this UserRecipesCartDto userRecipesCartDto, DatabaseContext context)
+        public static void Create(this UserRecipesCartDto userRecipesCartDto, string connectionString)
         {
-            UserRecipesCartPersistency.Instance.Create(context, UserRecipesCartDtoMapper.Mapper.MapToRecord(userRecipesCartDto));
+            UserRecipesCartPersistency.ConnectionString = connectionString;
+            UserRecipesCartPersistency.Instance.Create(UserRecipesCartDtoMapper.Mapper.MapToRecord(userRecipesCartDto));
         }
 
-        public static void Update(this UserRecipesCartDto userRecipesCartDto, DatabaseContext context)
+        public static void Update(this UserRecipesCartDto userRecipesCartDto, string connectionString)
         {
-            UserRecipesCartPersistency.Instance.Update(context, UserRecipesCartDtoMapper.Mapper.MapToRecord(userRecipesCartDto));
+            UserRecipesCartPersistency.ConnectionString = connectionString;
+            UserRecipesCartPersistency.Instance.Update(UserRecipesCartDtoMapper.Mapper.MapToRecord(userRecipesCartDto));
         }
 
-        public static void Delete(this UserRecipesCartDto userRecipesCartDto, DatabaseContext context)
+        public static void Delete(this UserRecipesCartDto userRecipesCartDto, string connectionString)
         {
-            UserRecipesCartPersistency.Instance.Delete(context, UserRecipesCartDtoMapper.Mapper.MapToRecord(userRecipesCartDto));
+            UserRecipesCartPersistency.ConnectionString = connectionString;
+            UserRecipesCartPersistency.Instance.Delete(UserRecipesCartDtoMapper.Mapper.MapToRecord(userRecipesCartDto));
         }
 
-        public static UserRecipesCartDto GetById(Guid id, DatabaseContext context)
+        public static UserRecipesCartDto GetById(Guid id, string connectionString)
         {
-            return UserRecipesCartDtoMapper.Mapper.MapToDto(UserRecipesCartPersistency.Instance.GetById(context, id));
+            UserRecipesCartPersistency.ConnectionString = connectionString;
+            return UserRecipesCartDtoMapper.Mapper.MapToDto(UserRecipesCartPersistency.Instance.GetById(id));
         }
     }
 }
