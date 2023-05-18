@@ -1,27 +1,39 @@
-﻿using BookOfRecipes.Shared.Records;
+﻿using BookOfRecipes.Database.Interfaces;
+using BookOfRecipes.Shared.Records;
 
 namespace BookOfRecipes.Database.Persistency
 {
     public class LikeOnRecipePersistency : PersistencyObject<LikeOnRecipe>
     {
-        public override void Create(DatabaseContext context, LikeOnRecipe entity)
+        private readonly IDatabaseContextFactory<DatabaseContext> _databaseContextFactory;
+        private readonly DatabaseContext _context;
+
+        public static LikeOnRecipePersistency Instance => new LikeOnRecipePersistency();
+
+        public LikeOnRecipePersistency()
         {
-            context.LikeOnRecipes.Add(entity);
-            base.SaveChanges(context);
+            _databaseContextFactory = new DatabaseContextFactory();
+            _context = _databaseContextFactory.CreateDatabaseContext(ConnectionString);
         }
 
-        public override void Delete(DatabaseContext context, LikeOnRecipe entity)
+        public override void Create(LikeOnRecipe entity)
         {
-            context.LikeOnRecipes.Remove(entity);
-            base.SaveChanges(context);
+            _context.LikeOnRecipes.Add(entity);
+            base.SaveChanges(_context);
         }
 
-        public override void Update(DatabaseContext context, LikeOnRecipe entity)
+        public override void Delete(LikeOnRecipe entity)
         {
-            context.LikeOnRecipes.Update(entity);
-            base.SaveChanges(context);
+            _context.LikeOnRecipes.Remove(entity);
+            base.SaveChanges(_context);
         }
 
-        public override LikeOnRecipe GetById(DatabaseContext context, Guid id) => context.LikeOnRecipes.FirstOrDefault(x => x.Id == id);
+        public override void Update(LikeOnRecipe entity)
+        {
+            _context.LikeOnRecipes.Update(entity);
+            base.SaveChanges(_context);
+        }
+
+        public override LikeOnRecipe GetById(Guid id) => _context.LikeOnRecipes.FirstOrDefault(x => x.Id == id);
     }
 }

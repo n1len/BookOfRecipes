@@ -8,5 +8,7 @@ namespace BookOfRecipes.Engine.Interfaces
         void Update(UserRoleDto userRoleDto);
         void Delete(UserRoleDto userRoleDto);
         UserRoleDto GetById(Guid id);
+        UserRoleDto GetByName(string name);
+        IEnumerable<UserRoleDto> GetAllRoles();
     }
 }

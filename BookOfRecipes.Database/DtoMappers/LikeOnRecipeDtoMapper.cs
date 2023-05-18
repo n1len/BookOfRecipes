@@ -6,6 +6,8 @@ namespace BookOfRecipes.Database.DtoMappers
 {
     public class LikeOnRecipeDtoMapper : BaseDtoMapper<LikeOnRecipeDto, LikeOnRecipe>
     {
+        public static LikeOnRecipeDtoMapper Mapper => new LikeOnRecipeDtoMapper();
+
         public override LikeOnRecipeDto MapToDto(LikeOnRecipe record)
         {
             if (record == null)

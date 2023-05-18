@@ -9,6 +9,7 @@ namespace BookOfRecipes.Shared.Records
         public required string Surname { get; init; }
         public required string Login { get; init; }
         public required string Password { get; init; }
+        public required string Token { get; init; }
         public bool IsBlocked { get; init; } = false;
 
         [ForeignKey(name: "UserRoleId")]

@@ -7,10 +7,11 @@ namespace BookOfRecipes.Database.Dtos
         public required string Name { get; init; }
         public required string Surname { get; init; }
         public required string Login { get; init; }
-        public required string Password { get; init; }
-        public bool IsBlocked { get; init; } = false;
+        public required string Password { get; set; }
+        public required string Token { get; init; }
+        public bool IsBlocked { get; set; } = false;
 
-        public required Guid UserRoleDtoId { get; init; }
+        public required Guid UserRoleDtoId { get; set; }
         public virtual UserRoleDto? UserRoleDto { get; init; }
 
         public ICollection<LikeOnRecipeDto> LikeOnRecipesDto { get; init; } = new List<LikeOnRecipeDto>();

@@ -8,5 +8,10 @@ namespace BookOfRecipes.Engine.Interfaces
         void Update(UserDto userDto);
         void Delete(UserDto userDto);
         UserDto GetById(Guid id);
+        UserDto GetByToken();
+        UserDto GetByLogin(string login);
+        IEnumerable<UserDto> GetAllUsers();
+        void CreateIsolatedStorageWithToken(string token);
+        void DeleteIsolatedStorage(string fileName = "Token.txt");
     }
 }

@@ -1,33 +1,33 @@
 ﻿using BookOfRecipes.Database.DtoMappers;
 using BookOfRecipes.Database.Dtos;
 using BookOfRecipes.Database.Persistency;
-using BookOfRecipes.Shared.Records;
 
 namespace BookOfRecipes.Database.Extensions
 {
     public static class UserOrderDtoExtension
     {
-        private static readonly UserOrderDtoMapper _mapper = new UserOrderDtoMapper();
-        private static readonly PersistencyObject<UserOrder> _persistencyObject = new UserOrderPersistency();
-
-        public static void Create(this UserOrderDto userOrderDto, DatabaseContext context)
+        public static void Create(this UserOrderDto userOrderDto, string connectionString)
         {
-            _persistencyObject.Create(context, _mapper.MapToRecord(userOrderDto));
+            UserOrderPersistency.ConnectionString = connectionString;
+            UserOrderPersistency.Instance.Create(UserOrderDtoMapper.Mapper.MapToRecord(userOrderDto));
         }
 
-        public static void Update(this UserOrderDto userOrderDto, DatabaseContext context)
+        public static void Update(this UserOrderDto userOrderDto, string connectionString)
         {
-            _persistencyObject.Update(context, _mapper.MapToRecord(userOrderDto));
+            UserOrderPersistency.ConnectionString = connectionString;
+            UserOrderPersistency.Instance.Update(UserOrderDtoMapper.Mapper.MapToRecord(userOrderDto));
         }
 
-        public static void Delete(this UserOrderDto userOrderDto, DatabaseContext context)
+        public static void Delete(this UserOrderDto userOrderDto, string connectionString)
         {
-            _persistencyObject.Delete(context, _mapper.MapToRecord(userOrderDto));
+            UserOrderPersistency.ConnectionString = connectionString;
+            UserOrderPersistency.Instance.Delete(UserOrderDtoMapper.Mapper.MapToRecord(userOrderDto));
         }
 
-        public static UserOrderDto GetById(Guid id, DatabaseContext context)
+        public static UserOrderDto GetById(Guid id, string connectionString)
         {
-            return _mapper.MapToDto(_persistencyObject.GetById(context, id));
+            UserOrderPersistency.ConnectionString = connectionString;
+            return UserOrderDtoMapper.Mapper.MapToDto(UserOrderPersistency.Instance.GetById(id));
         }
     }
 }

@@ -6,6 +6,8 @@ namespace BookOfRecipes.Database.DtoMappers
 {
     public class UserRoleDtoMapper : BaseDtoMapper<UserRoleDto, UserRole>
     {
+        public static UserRoleDtoMapper Mapper => new UserRoleDtoMapper();
+
         public override UserRoleDto MapToDto(UserRole record)
         {
             if (record == null)
@@ -34,6 +36,17 @@ namespace BookOfRecipes.Database.DtoMappers
                 RoleName = dto.RoleName,
                 Users = dto.UsersDto.Cast<User>().ToList()
             };
+        }
+
+        public IEnumerable<UserRoleDto> MapToDtos(IEnumerable<UserRole> roles) 
+        {
+            List<UserRoleDto> dtos = new List<UserRoleDto>();
+            foreach (var role in roles)
+            {
+                dtos.Add(MapToDto(role));
+            }
+
+            return dtos;
         }
     }
 }
